@@ -43,10 +43,12 @@
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .header a:hover {
   color: #c291e2;
+  transition: all 0.2s ease-in-out;
 }
 
 .header button:hover {

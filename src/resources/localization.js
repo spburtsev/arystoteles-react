@@ -10,7 +10,10 @@ const localization = new LocalizedStrings({
     },
     homePage: {
       welcome: 'Welcome to Kuk',
-      whatIsKuk: 'What is Kuk?',
+      whatIsKuk: {
+        title: 'What is Kuk?',
+        text: 'Kuk is a platform for sharing your knowledge with others.',
+      },
     },
     notFoundPage: {
       title: '404',
@@ -42,7 +45,10 @@ const localization = new LocalizedStrings({
     },
     homePage: {
       welcome: 'Ласкаво просимо на Kuk',
-      whatIsKuk: 'Що таке Kuk?',
+      whatIsKuk: {
+        title: 'Що таке Kuk?',
+        text: "Kuk - це проект для прийняття рішень про забезпечення здоров'я людини в області за допомогою медичних програм і програм інтернет-застосунків.",
+      },
     },
     notFoundPage: {
       title: '404',
