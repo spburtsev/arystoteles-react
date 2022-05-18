@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import LocaleContext from '../../context/locale-context';
+import ParentsIcon from '../icons/ParentsIcon';
+import OrganizationIcon from '../icons/OrganizationIcon';
 import cn from 'classnames';
 import classes from './RoleControls.module.css';
 
@@ -16,20 +18,32 @@ const RoleControls = (props) => {
   };
 
   return (
-    <section className={classes.controls}>
-      <button
-        onClick={roleChangeHandlerCreator('medic')}
-        className={cn(selectedRole === 'medic' && classes.active)}
-      >
-        {locale.forPublicHealthOrgnizations}
-      </button>
-      <button
-        onClick={roleChangeHandlerCreator('parent')}
-        className={cn(selectedRole === 'parent' && classes.active)}
-      >
-        {locale.forParents}
-      </button>
-    </section>
+    <>
+      <section className={classes.controls}>
+        <div
+          className={cn(
+            classes.control,
+            selectedRole === 'organization' && classes.active,
+          )}
+        >
+          <OrganizationIcon />
+          <button onClick={roleChangeHandlerCreator('organization')}>
+            {locale.forPublicHealthOrgnizations}
+          </button>
+        </div>
+        <div
+          className={cn(
+            classes.control,
+            selectedRole === 'parent' && classes.active,
+          )}
+        >
+          <ParentsIcon />
+          <button onClick={roleChangeHandlerCreator('parent')}>
+            {locale.forParents}
+          </button>
+        </div>
+      </section>
+    </>
   );
 };
 export default RoleControls;

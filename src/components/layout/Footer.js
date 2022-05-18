@@ -8,7 +8,6 @@ const Footer = () => {
   const localeChangeHandlerCreator = (locale) => {
     return (event) => {
       event.preventDefault();
-      console.log(`Changing locale to ${locale}`);
       localeCtx.changeLocale(locale);
     };
   };

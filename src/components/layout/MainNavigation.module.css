@@ -34,6 +34,13 @@
   font-weight: bold;
 }
 
+.header a:hover,
+.header a:active,
+.header a.active {
+  color: #c291e2;
+  transition: all 0.2s ease-in-out;
+}
+
 .header button {
   font: inherit;
   background-color: transparent;
@@ -43,11 +50,6 @@
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.header a:hover {
-  color: #c291e2;
   transition: all 0.2s ease-in-out;
 }
 

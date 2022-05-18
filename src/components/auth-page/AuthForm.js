@@ -1,23 +1,51 @@
-import { useState, useRef, useContext } from 'react';
+import { useState, useRef, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import useHttp from '../../hooks/use-http';
+import { sendLoginRequest } from '../../lib/api/user';
 import LocaleContext from '../../context/locale-context';
 import AuthContext from '../../context/auth-context';
 import classes from './AuthForm.module.css';
 
 const AuthForm = (props) => {
+  const { selectedRole } = props;
   const history = useHistory();
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
+  const roleSelectionRef = useRef(null);
+  const {
+    sendRequest: sendLogin,
+    status: loginStatus,
+    data: loginData,
+    error: loginError,
+  } = useHttp(sendLoginRequest);
 
   const authCtx = useContext(AuthContext);
   const localeCtx = useContext(LocaleContext);
 
   const [isLogin, setIsLogin] = useState(true);
+  const isRegister = !isLogin;
   const [isLoading, setIsLoading] = useState(false);
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    if (loginStatus === 'pending') {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+    if (loginStatus === 'completed' && !loginError) {
+      const expirationTime = new Date(
+        new Date().getTime() + +loginData.expiresIn * 1000,
+      );
+      authCtx.login(loginData.token, expirationTime.toISOString());
+      history.replace('/');
+    } else if (loginError) {
+      alert(loginError.message);
+    }
+  }, [loginStatus, loginData, loginError, authCtx, history]);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -26,49 +54,9 @@ const AuthForm = (props) => {
     const enteredPassword = passwordInputRef.current.value;
 
     // optional: Add validation
-
-    setIsLoading(true);
-    let url;
     if (isLogin) {
-      url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBZhsabDexE9BhcJbGxnZ4DiRlrCN9xe24';
-    } else {
-      url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZhsabDexE9BhcJbGxnZ4DiRlrCN9xe24';
+      sendLogin(enteredEmail, enteredPassword);
     }
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: enteredEmail,
-        password: enteredPassword,
-        returnSecureToken: true,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        setIsLoading(false);
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = locale.authenticationFailed;
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        const expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000,
-        );
-        authCtx.login(data.idToken, expirationTime.toISOString());
-        history.replace('/');
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
   };
 
   const locale = localeCtx.localizationObj.authPage;
@@ -77,6 +65,15 @@ const AuthForm = (props) => {
     <section className={classes.auth}>
       <h1>{isLogin ? locale.login : locale.register}</h1>
       <form onSubmit={submitHandler}>
+        {isRegister && selectedRole === 'organization' && (
+          <div className={classes.control}>
+            <label htmlFor="orgRole">{locale.yourRole}</label>
+            <select ref={roleSelectionRef}>
+              <option value="medic">{locale.medic}</option>
+              <option value="administrator">{locale.administrator}</option>
+            </select>
+          </div>
+        )}
         <div className={classes.control}>
           <label htmlFor="email">{locale.email}</label>
           <input type="email" id="email" required ref={emailInputRef} />

@@ -12,7 +12,7 @@ const AuthPage = () => {
   return (
     <Fragment>
       <RoleControls selectedRole={role} onSelectRole={roleChangeHandler} />
-      <AuthForm />
+      <AuthForm selectedRole={role} />
     </Fragment>
   );
 };

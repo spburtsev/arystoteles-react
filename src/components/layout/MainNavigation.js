@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import LocaleContext from '../../context/locale-context';
 import AuthContext from '../../context/auth-context';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
@@ -17,19 +17,28 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.header}>
-      <Link to="/">
+      <NavLink to="/" activeClassName={classes.active}>
         <div className={classes.logo}>{localizationObj.navigation.title}</div>
-      </Link>
+      </NavLink>
       <nav>
         <ul>
+          <li>
+            <NavLink to="/organizations/all" activeClassName={classes.active}>
+              {localizationObj.navigation.organizations}
+            </NavLink>
+          </li>
           {!isLoggedIn && (
             <li>
-              <Link to="/auth">{localizationObj.navigation.login}</Link>
+              <NavLink to="/auth" activeClassName={classes.active}>
+                {localizationObj.navigation.login}
+              </NavLink>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <Link to="/profile">{localizationObj.navigation.profile}</Link>
+              <NavLink to="/profile" activeClassName={classes.active}>
+                {localizationObj.navigation.profile}
+              </NavLink>
             </li>
           )}
           {isLoggedIn && (

@@ -13,6 +13,25 @@ body {
   text-align: center;
 }
 
+.btn {
+  font: inherit;
+  background-color: transparent;
+  border: 1px solid white;
+  color: #38015c;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgb(216, 188, 253);
+
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #c291e2;
+  border-color: #38015c;
+}
+
 h1,
 h2,
 h3,

@@ -7,6 +7,7 @@ const localization = new LocalizedStrings({
       login: 'Login',
       logout: 'Logout',
       profile: 'Profile',
+      organizations: 'Organizations',
     },
     homePage: {
       welcome: 'Welcome to Kuk',
@@ -32,8 +33,24 @@ const localization = new LocalizedStrings({
       createProfile: 'Create Profile',
       sendingRequest: 'Sending request...',
       authenticationFailed: 'Authentication failed!',
-      forPublicHealthOrgnizations: 'For public health orgnizations',
+      forPublicHealthOrgnizations: 'For public health organizations',
       forParents: 'For parents',
+      yourRole: 'Your role in organization',
+      medic: 'Medic',
+      administrator: 'Administrator',
+    },
+    organizationsPage: {
+      country: 'Country',
+      city: 'City',
+      name: 'Name',
+      find: 'Find',
+      explore: 'Explore',
+    },
+    organizationDetailsPage: {
+      notFound: 'Organization not found',
+    },
+    apiErrors: {
+      loginError: 'Login failed!',
     },
   },
   uk: {
@@ -42,6 +59,7 @@ const localization = new LocalizedStrings({
       login: 'Увійти',
       logout: 'Вийти',
       profile: 'Профіль',
+      organizations: 'Організації',
     },
     homePage: {
       welcome: 'Ласкаво просимо на Kuk',
@@ -63,12 +81,28 @@ const localization = new LocalizedStrings({
       password: 'Пароль',
       confirmPassword: 'Підтвердити пароль',
       submit: 'Підтвердити',
-      alreadyHaveAccount: 'Вже маєш акаунт?',
+      alreadyHaveAccount: 'Вже маєте акаунт?',
       createProfile: 'Створити профіль',
       sendingRequest: 'Відправляємо запит...',
       authenticationFailed: 'Аутентифікація не вдалася',
-      forPublicHealthOrgnizations: 'Для громадських організацій',
+      forPublicHealthOrgnizations: 'Для організацій',
       forParents: 'Для батьків',
+      yourRole: 'Ваша роль в організації',
+      medic: 'Медик',
+      administrator: 'Адміністратор',
+    },
+    organizationsPage: {
+      country: 'Країна',
+      city: 'Місто',
+      name: 'Назва',
+      find: 'Знайти',
+      explore: 'Більше',
+    },
+    organizationDetailsPage: {
+      notFound: 'Організація не знайдена',
+    },
+    apiErrors: {
+      loginError: 'Не вдалося увійти!',
     },
   },
 });

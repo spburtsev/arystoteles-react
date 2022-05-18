@@ -1,6 +1,6 @@
 .controls {
   width: 100%;
-  height: 5rem;
+  min-height: 5rem;
   background-color: rgb(216, 188, 253);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -9,7 +9,22 @@
   padding: 0 10%;
 }
 
-.controls button {
+.control {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.control svg {
+  width: 3rem;
+  height: 3rem;
+  fill: #fff;
+  margin-bottom: 1rem;
+}
+
+.control button {
   font: inherit;
   background-color: transparent;
   border: 1px solid white;
@@ -22,16 +37,21 @@
   transition: all 0.2s ease-in-out;
 }
 
-.controls button:hover {
+.control button:hover {
   background-color: #c291e2;
   border-color: #38015c;
   scale: 1.1;
 }
 
-.active {
+.active button {
   background-color: #c291e2 !important;
   scale: 1.1;
   border-color: white !important;
+}
+
+.active svg {
+  fill: #c291e2 !important;
+  transition: all 0.2s ease-in-out;
 }
 
 @media (min-width: 1280px) {
@@ -40,5 +60,18 @@
     border-radius: 16px;
     border: 1px solid #c291e2;
     margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1680px) {
+  .controls {
+    max-width: 40%;
+    border-radius: 16px;
+    border: 1px solid #c291e2;
+    margin-top: 1rem;
+    padding: 0;
+  }
+  .control button {
+    width: 100%;
   }
 }
