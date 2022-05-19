@@ -48,6 +48,7 @@ const localization = new LocalizedStrings({
     },
     organizationDetailsPage: {
       notFound: 'Organization not found',
+      noInfo: 'No information provided',
     },
     apiErrors: {
       loginError: 'Login failed!',
@@ -100,6 +101,7 @@ const localization = new LocalizedStrings({
     },
     organizationDetailsPage: {
       notFound: 'Організація не знайдена',
+      noInfo: 'Немає інформації',
     },
     apiErrors: {
       loginError: 'Не вдалося увійти!',
