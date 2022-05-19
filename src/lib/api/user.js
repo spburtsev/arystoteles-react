@@ -8,13 +8,13 @@ const baseRoute = `${baseUrl}users/`;
 export const register = `${baseRoute}register`;
 export const login = `${baseRoute}login`;
 
-export const sendLoginRequest = async (email, password) => {
+export const sendLoginRequest = async (credentials) => {
   const response = await fetch(login, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(credentials),
   });
   const data = await response.json();
   if (!response.ok) {

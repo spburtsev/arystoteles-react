@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import jwt from 'jwt-decode';
 
 let logoutTimer;
 
@@ -58,7 +59,7 @@ export const AuthContextProvider = (props) => {
     }
   }, []);
 
-  const loginHandler = (token, expirationTime) => {
+  const loginHandler = (token, expirationTime, role) => {
     setToken(token);
     localStorage.setItem('arystoteles-token', token);
     localStorage.setItem('arystoteles-expirationTime', expirationTime);
@@ -78,6 +79,7 @@ export const AuthContextProvider = (props) => {
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
+    role: token ? jwt(token)?.role : '',
     login: loginHandler,
     logout: logoutHandler,
   };
@@ -88,5 +90,4 @@ export const AuthContextProvider = (props) => {
     </AuthContext.Provider>
   );
 };
-
 export default AuthContext;

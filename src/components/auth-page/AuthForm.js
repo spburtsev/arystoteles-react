@@ -37,10 +37,11 @@ const AuthForm = (props) => {
       setIsLoading(false);
     }
     if (loginStatus === 'completed' && !loginError) {
-      const expirationTime = new Date(
-        new Date().getTime() + +loginData.expiresIn * 1000,
+      authCtx.login(
+        loginData.token,
+        loginData.expires,
+        loginData.data?.user?.role,
       );
-      authCtx.login(loginData.token, expirationTime.toISOString());
       history.replace('/');
     } else if (loginError) {
       alert(loginError.message);
@@ -55,7 +56,7 @@ const AuthForm = (props) => {
 
     // optional: Add validation
     if (isLogin) {
-      sendLogin(enteredEmail, enteredPassword);
+      sendLogin({ email: enteredEmail, password: enteredPassword });
     }
   };
 
