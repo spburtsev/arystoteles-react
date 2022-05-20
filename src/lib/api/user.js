@@ -8,13 +8,13 @@ const baseRoute = `${baseUrl}users/`;
 export const register = `${baseRoute}register`;
 export const login = `${baseRoute}login`;
 
-export const sendLoginRequest = async (credentials) => {
-  const response = await fetch(login, {
+const sendAuthRequest = async (user, route) => {
+  const response = await fetch(route, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(credentials),
+    body: JSON.stringify(user),
   });
   const data = await response.json();
   if (!response.ok) {
@@ -22,6 +22,12 @@ export const sendLoginRequest = async (credentials) => {
   }
   return data;
 };
+
+export const sendLoginRequest = async (user) =>
+  await sendAuthRequest(user, login);
+
+export const sendRegisterRequest = async (user) =>
+  await sendAuthRequest(user, register);
 
 export const logout = `${baseRoute}logout`;
 
