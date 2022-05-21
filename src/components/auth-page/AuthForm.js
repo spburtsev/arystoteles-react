@@ -9,7 +9,7 @@ import RequestStatus from '../../lib/enums/RequestStatus';
 import classes from './AuthForm.module.css';
 
 const AuthForm = (props) => {
-  const { selectedRole } = props;
+  const { selectedRole, isLogin, onFormSwitch } = props;
   const history = useHistory();
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
@@ -30,13 +30,8 @@ const AuthForm = (props) => {
   const auth = useAuth();
   const { strings: locale } = useLocale('authPage');
 
-  const [isLogin, setIsLogin] = useState(true);
   const isRegister = !isLogin;
   const [isLoading, setIsLoading] = useState(false);
-
-  const switchAuthModeHandler = () => {
-    setIsLogin((prevState) => !prevState);
-  };
 
   useEffect(() => {
     if (loginStatus === RequestStatus.Pending) {
@@ -132,7 +127,7 @@ const AuthForm = (props) => {
           <button
             type="button"
             className={classes.toggle}
-            onClick={switchAuthModeHandler}
+            onClick={onFormSwitch}
           >
             {isLogin ? locale.createProfile : locale.alreadyHaveAccount}
           </button>

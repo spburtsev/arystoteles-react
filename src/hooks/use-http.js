@@ -2,7 +2,7 @@ import { useReducer, useCallback } from 'react';
 import RequestStatus from '../lib/enums/RequestStatus';
 
 const httpReducer = (state, action) => {
-  if (action.type === 'SEND') {
+  if (action.type === 'send') {
     return {
       data: null,
       error: null,
@@ -10,7 +10,7 @@ const httpReducer = (state, action) => {
     };
   }
 
-  if (action.type === 'SUCCESS') {
+  if (action.type === 'success') {
     return {
       data: action.responseData,
       error: null,
@@ -18,7 +18,7 @@ const httpReducer = (state, action) => {
     };
   }
 
-  if (action.type === 'ERROR') {
+  if (action.type === 'error') {
     return {
       data: null,
       error: action.errorMessage,
@@ -38,13 +38,13 @@ const useHttp = (requestFunction, startWithPending = false) => {
 
   const sendRequest = useCallback(
     async (requestData) => {
-      dispatch({ type: 'SEND' });
+      dispatch({ type: 'send' });
       try {
         const responseData = await requestFunction(requestData);
-        dispatch({ type: 'SUCCESS', responseData });
+        dispatch({ type: 'success', responseData });
       } catch (error) {
         dispatch({
-          type: 'ERROR',
+          type: 'error',
           errorMessage: error.message,
         });
       }

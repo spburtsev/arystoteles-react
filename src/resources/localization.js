@@ -39,6 +39,16 @@ const localization = new LocalizedStrings({
       medic: 'Medic',
       administrator: 'Administrator',
     },
+    profilePage: {
+      myProfile: 'My Profile',
+      editProfile: 'Edit Profile',
+      deleteProfile: 'Delete Profile',
+      backups: 'Backups',
+      newBackup: 'New Backup',
+      downloadData: 'Download Data',
+      newPassword: 'New Password',
+      changePassword: 'Change Password',
+    },
     organizationsPage: {
       country: 'Country',
       city: 'City',
@@ -91,6 +101,16 @@ const localization = new LocalizedStrings({
       yourRole: 'Ваша роль в організації',
       medic: 'Медик',
       administrator: 'Адміністратор',
+    },
+    profilePage: {
+      myProfile: 'Мій профіль',
+      editProfile: 'Редагувати профіль',
+      deleteProfile: 'Видалити профіль',
+      backups: 'Резервні копії',
+      newBackup: 'Нова резервна копія',
+      downloadData: 'Завантажити дані',
+      newPassword: 'Новий пароль',
+      changePassword: 'Змінити пароль',
     },
     organizationsPage: {
       country: 'Країна',

@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import jwt from 'jwt-decode';
+import {
+  retrieveStoredToken,
+  calculateRemainingTime,
+  getRole,
+} from '../lib/helpers/auth';
 
 let logoutTimer;
 
@@ -10,32 +14,6 @@ const AuthContext = React.createContext({
   login: (token) => {},
   logout: () => {},
 });
-
-const calculateRemainingTime = (expirationTime) => {
-  const currentTime = new Date().getTime();
-  const adjExpirationTime = new Date(expirationTime).getTime();
-  const remainingDuration = adjExpirationTime - currentTime;
-  return remainingDuration;
-};
-
-const retrieveStoredToken = () => {
-  const storedToken = localStorage.getItem('arystoteles-token');
-  const storedExpirationDate = localStorage.getItem(
-    'arystoteles-expirationTime',
-  );
-  const remainingTime = calculateRemainingTime(storedExpirationDate);
-
-  if (remainingTime <= 3600) {
-    localStorage.removeItem('arystoteles-token');
-    localStorage.removeItem('arystoteles-expirationTime');
-    return null;
-  }
-
-  return {
-    token: storedToken,
-    duration: remainingTime,
-  };
-};
 
 export const AuthContextProvider = (props) => {
   const tokenData = retrieveStoredToken();
@@ -59,7 +37,7 @@ export const AuthContextProvider = (props) => {
     }
   }, []);
 
-  const loginHandler = (token, expirationTime, role) => {
+  const loginHandler = (token, expirationTime) => {
     setToken(token);
     localStorage.setItem('arystoteles-token', token);
     localStorage.setItem('arystoteles-expirationTime', expirationTime);
@@ -71,7 +49,6 @@ export const AuthContextProvider = (props) => {
 
   useEffect(() => {
     if (tokenData) {
-      console.log(tokenData.duration);
       logoutTimer = setTimeout(logoutHandler, tokenData.duration);
     }
   }, [tokenData, logoutHandler]);
@@ -79,7 +56,7 @@ export const AuthContextProvider = (props) => {
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
-    role: token ? jwt(token)?.role : '',
+    role: getRole(token),
     login: loginHandler,
     logout: logoutHandler,
   };

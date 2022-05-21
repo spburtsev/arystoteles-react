@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import LocaleContext from '../../context/locale-context';
 import AuthContext from '../../context/auth-context';
 import { NavLink } from 'react-router-dom';
@@ -6,13 +7,14 @@ import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
+  const history = useHistory();
   const { localizationObj } = useContext(LocaleContext);
 
   const isLoggedIn = authCtx.isLoggedIn;
 
   const logoutHandler = () => {
     authCtx.logout();
-    // optional: redirect the user
+    history.replace('/auth');
   };
 
   return (

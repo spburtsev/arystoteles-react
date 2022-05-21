@@ -15,35 +15,32 @@ const RoleControls = (props) => {
       onSelectRole(role);
     };
   };
+
   return (
-    <>
-      <section className={classes.controls}>
-        <div
-          className={cn(
-            classes.control,
-            selectedRole === UserRole.OrganizationProxy && classes.active,
-          )}
-        >
-          <OrganizationIcon />
-          <button
-            onClick={roleChangeHandlerCreator(UserRole.OrganizationProxy)}
-          >
-            {locale.forPublicHealthOrgnizations}
-          </button>
-        </div>
-        <div
-          className={cn(
-            classes.control,
-            selectedRole === UserRole.Parent && classes.active,
-          )}
-        >
-          <ParentsIcon />
-          <button onClick={roleChangeHandlerCreator(UserRole.Parent)}>
-            {locale.forParents}
-          </button>
-        </div>
-      </section>
-    </>
+    <section className={classes.controls}>
+      <div
+        className={cn(
+          classes.control,
+          selectedRole === UserRole.OrganizationProxy && classes.active,
+        )}
+      >
+        <OrganizationIcon />
+        <button onClick={roleChangeHandlerCreator(UserRole.OrganizationProxy)}>
+          {locale.forPublicHealthOrgnizations}
+        </button>
+      </div>
+      <div
+        className={cn(
+          classes.control,
+          selectedRole === UserRole.Parent && classes.active,
+        )}
+      >
+        <ParentsIcon />
+        <button onClick={roleChangeHandlerCreator(UserRole.Parent)}>
+          {locale.forParents}
+        </button>
+      </div>
+    </section>
   );
 };
 export default RoleControls;

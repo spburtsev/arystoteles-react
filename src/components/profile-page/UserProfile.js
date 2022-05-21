@@ -1,5 +1,4 @@
 import useAuth from '../../hooks/use-auth';
-import ProfileForm from './ProfileForm';
 import classes from './UserProfile.module.css';
 
 const UserProfile = () => {
@@ -9,7 +8,6 @@ const UserProfile = () => {
     <section className={classes.profile}>
       <h1>My Profile</h1>
       <h2>{`Role is: ${authCtx.role}`}</h2>
-      <ProfileForm />
     </section>
   );
 };

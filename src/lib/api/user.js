@@ -39,5 +39,14 @@ export const me = `${baseRoute}me`;
 export const updateMe = `${baseRoute}updateMe`;
 export const deleteMe = `${baseRoute}deleteMe`;
 
+export const sendGetMeRequest = async () => {
+  const response = await fetch(me);
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || apiErrors.loginError);
+  }
+  return data;
+};
+
 export const getAllUsers = `${baseRoute}`;
 export const getUser = (id) => `${baseRoute}${id}`;
