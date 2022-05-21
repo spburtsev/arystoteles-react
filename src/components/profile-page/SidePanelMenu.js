@@ -3,12 +3,12 @@ import cn from 'classnames';
 import classes from './SidePanelMenu.module.css';
 
 const SidePanelMenu = (props) => {
-  const { selection } = props;
+  const { menuItems } = props;
   const { strings: locale } = useLocale('profilePage');
 
   return (
     <ul className={classes.menu}>
-      {selection.map((item, index) => (
+      {menuItems.map((item, index) => (
         <li key={index}>
           <button
             onClick={item.onSelect}
