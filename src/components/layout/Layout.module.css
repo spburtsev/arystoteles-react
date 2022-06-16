@@ -1,3 +1,7 @@
 .wrapper {
   flex: 1 1 0;
 }
+
+.main {
+  padding: 1rem;
+}
