@@ -21,6 +21,6 @@ const profileSlice = createSlice({
 
 export const { setProfile } = profileSlice.actions;
 
-export const selectProfile = (state) => state.locale.localization;
+export const selectProfile = (state) => state;
 
 export default profileSlice;
