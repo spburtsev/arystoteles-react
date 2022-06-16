@@ -1,9 +1,10 @@
 import { Fragment } from 'react';
+import LoginForm from '../components/login-page/LoginForm';
 
 const LoginPage = () => {
   return (
     <Fragment>
-      <h1>Login</h1>
+      <LoginForm />
     </Fragment>
   );
 };
