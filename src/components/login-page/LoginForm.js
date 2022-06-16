@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import useLocale from '../../hooks/use-locale';
 import useAuth from '../../hooks/use-auth';
-import { useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 import { createLoginRequest } from '../../lib/api/user';
 import classes from './LoginForm.module.css';
 
@@ -12,38 +12,33 @@ const LoginForm = () => {
   const history = useHistory();
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
-  const [loginData, setLoginData] = useState({});
 
-  const { isLoading, refetch } = useQuery(
-    'login',
-    createLoginRequest(loginData),
-    {
-      enabled: false,
-      retry: false,
-      onError: (err) => {
-        alert(err.message);
-      },
-      onSuccess: (data) => {
-        if (!data.token) {
-          alert(strings.loginError);
-          return;
-        }
-        auth.login(data.token, data.expires, data.data.user.role);
-        history.replace('/');
-      },
+  const { isLoading, mutate } = useMutation(createLoginRequest, {
+    enabled: false,
+    retry: false,
+    onError: (err) => {
+      alert(err.message);
     },
-  );
+    onSuccess: async (fn) => {
+      const data = await fn();
+      if (!data.token) {
+        alert(strings.loginError);
+        return;
+      }
+      auth.login(data.token, data.expires, data.data.user.role);
+      history.replace('/');
+    },
+  });
 
   const submitHandler = (event) => {
     event.preventDefault();
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    setLoginData({
+    mutate({
       email: enteredEmail,
       password: enteredPassword,
     });
-    refetch();
   };
 
   return (
