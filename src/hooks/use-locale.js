@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import LocaleContext from '../context/locale-context';
+import AppLocale from '../lib/enums/AppLocale';
 
 const useLocale = (localizationPart) => {
   const localeCtx = useContext(LocaleContext);
@@ -12,6 +13,7 @@ const useLocale = (localizationPart) => {
     current: locale,
     strings: localizationObj,
     set: setLocale,
+    locales: AppLocale,
   };
 };
 export default useLocale;

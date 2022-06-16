@@ -1,20 +1,26 @@
 import LocalizedStrings from 'localized-strings';
+import AppLocale from '../lib/enums/AppLocale';
 
 const localization = new LocalizedStrings({
-  en: {
+  [AppLocale.English]: {
     navigation: {
-      title: 'Kuk',
-      login: 'Login',
-      logout: 'Logout',
+      title: 'Arystoteles',
+      login: 'Sign in',
+      logout: 'Sign out',
+      register: 'Sign up',
+      home: 'Home',
       profile: 'Profile',
       organizations: 'Organizations',
     },
     homePage: {
-      welcome: 'Welcome to Kuk',
+      welcome: 'Welcome to Arystoteles',
       whatIsKuk: {
-        title: 'What is Kuk?',
-        text: 'Kuk is a platform for sharing your knowledge with others.',
+        title: 'What is Arystoteles?',
+        text: 'Arystoteles is a platform for sharing your knowledge with others.',
       },
+    },
+    registerPage: {
+      title: 'Register',
     },
     notFoundPage: {
       title: '404',
@@ -64,20 +70,25 @@ const localization = new LocalizedStrings({
       loginError: 'Login failed!',
     },
   },
-  uk: {
+  [AppLocale.Ukrainian]: {
     navigation: {
-      title: 'Kuk',
+      title: 'Arystoteles',
       login: 'Увійти',
+      register: 'Зареєструватися',
+      home: 'Головна',
       logout: 'Вийти',
       profile: 'Профіль',
       organizations: 'Організації',
     },
     homePage: {
-      welcome: 'Ласкаво просимо на Kuk',
+      welcome: 'Ласкаво просимо на Arystoteles',
       whatIsKuk: {
-        title: 'Що таке Kuk?',
-        text: "Kuk - це проект для прийняття рішень про забезпечення здоров'я людини в області за допомогою медичних програм і програм інтернет-застосунків.",
+        title: 'Що таке Arystoteles?',
+        text: "Arystoteles - це проект для прийняття рішень про забезпечення здоров'я людини в області за допомогою медичних програм і програм інтернет-застосунків.",
       },
+    },
+    registerPage: {
+      title: 'Реєстрація',
     },
     notFoundPage: {
       title: '404',

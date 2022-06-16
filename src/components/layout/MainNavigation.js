@@ -1,59 +1,53 @@
-import { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import LocaleContext from '../../context/locale-context';
-import AuthContext from '../../context/auth-context';
+import { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/use-auth';
+import useLocale from '../../hooks/use-locale';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
-  const authCtx = useContext(AuthContext);
-  const history = useHistory();
-  const { localizationObj } = useContext(LocaleContext);
-
-  const isLoggedIn = authCtx.isLoggedIn;
-
-  const logoutHandler = () => {
-    authCtx.logout();
-    history.replace('/auth');
-  };
+  const { isLoggedIn } = useAuth();
+  const { strings } = useLocale('navigation');
 
   return (
-    <header className={classes.header}>
-      <NavLink to="/" activeClassName={classes.active}>
-        <div className={classes.logo}>{localizationObj.navigation.title}</div>
-      </NavLink>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/organizations/all" activeClassName={classes.active}>
-              {localizationObj.navigation.organizations}
-            </NavLink>
-          </li>
+    <Fragment>
+      <div class={classes['menu-toggle']}>
+        <div class={classes.hamburger}>
+          <span></span>
+        </div>
+      </div>
+
+      <aside class={classes.sidebar}>
+        <h1>Arystoteles</h1>
+        <nav class={classes.menu}>
+          <NavLink
+            to="/"
+            className={classes['menu-item']}
+            activeClassName={classes.active}
+            exact
+          >
+            {strings.home}
+          </NavLink>
           {!isLoggedIn && (
-            <li>
-              <NavLink to="/auth" activeClassName={classes.active}>
-                {localizationObj.navigation.login}
+            <Fragment>
+              <NavLink
+                to="/auth/login"
+                className={classes['menu-item']}
+                activeClassName={classes.active}
+              >
+                {strings.login}
               </NavLink>
-            </li>
-          )}
-          {isLoggedIn && (
-            <li>
-              <NavLink to="/profile" activeClassName={classes.active}>
-                {localizationObj.navigation.profile}
+              <NavLink
+                to="/auth/register"
+                className={classes['menu-item']}
+                activeClassName={classes.active}
+              >
+                {strings.register}
               </NavLink>
-            </li>
+            </Fragment>
           )}
-          {isLoggedIn && (
-            <li>
-              <button onClick={logoutHandler}>
-                {localizationObj.navigation.logout}
-              </button>
-            </li>
-          )}
-        </ul>
-      </nav>
-    </header>
+        </nav>
+      </aside>
+    </Fragment>
   );
 };
-
 export default MainNavigation;

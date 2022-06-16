@@ -1,3 +1,10 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
 .main {
-  min-height: calc(100vh - 15rem);
+  flex: 1 1 0;
+  padding: 2rem;
+  min-height: calc(100vh - 10rem);
 }

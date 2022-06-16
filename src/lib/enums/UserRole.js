@@ -3,8 +3,6 @@ const UserRole = {
   Admin: 'admin',
   OrganizationAdministrator: 'organizationAdministrator',
   Medic: 'medic',
-  Parent: 'parent',
-
-  OrganizationProxy: 'organization',
+  Caregiver: 'caregiver',
 };
 export default UserRole;

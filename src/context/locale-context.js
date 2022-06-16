@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import localization from '../resources/localization';
+import AppLocale from '../lib/enums/AppLocale';
 
 const LocaleContext = React.createContext({
-  locale: 'uk',
+  locale: AppLocale.Ukrainian,
   localizationObj: localization,
   setLocale: (_locale) => {},
 });
 
 export const LocaleContextProvider = (props) => {
-  const [locale, setLocale] = useState('uk');
+  const [locale, setLocale] = useState(AppLocale.Ukrainian);
   localization.setLanguage(locale);
 
   const localeChangeHandler = (locale) => {
@@ -18,7 +19,7 @@ export const LocaleContextProvider = (props) => {
   const contextValue = {
     locale,
     localizationObj: localization,
-    changeLocale: localeChangeHandler,
+    setLocale: localeChangeHandler,
   };
 
   return (
