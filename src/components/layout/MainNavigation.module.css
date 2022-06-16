@@ -61,7 +61,8 @@
 }
 
 .sidebar h1 {
-  color: #707793;
+  color: #fff;
+  pointer-events: none;
   margin-bottom: 0.5em;
 }
 
@@ -79,16 +80,12 @@
 
 .active {
   color: #c291e2;
-  border-right: 5px solid #c291e2;
+  border-right: 8px solid #c291e2;
 }
 
 .sidebar .menu .menu-item:hover {
   color: #c291e2;
-  border-right: 5px solid #c291e2;
-}
-
-.sidebar .menu .menu-item:hover {
-  border-right: 5px solid #c291e2;
+  border-right: 12px solid #c291e2;
 }
 
 .content {

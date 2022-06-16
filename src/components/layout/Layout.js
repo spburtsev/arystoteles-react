@@ -1,16 +1,17 @@
+import { Fragment } from 'react';
 import MainNavigation from './MainNavigation';
 import AppHeader from './AppHeader';
 import classes from './Layout.module.css';
 
 const Layout = (props) => {
   return (
-    <div className={classes.app}>
+    <Fragment>
       <MainNavigation />
-      <main className={classes.main}>
+      <div className={classes.wrapper}>
         <AppHeader />
-        {props.children}
-      </main>
-    </div>
+        <main className={classes.main}>{props.children}</main>
+      </div>
+    </Fragment>
   );
 };
 
