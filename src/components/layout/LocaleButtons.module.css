@@ -16,7 +16,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.locales button:last-child {
+.locales :last-of-type button {
   margin-left: 1rem;
 }
 

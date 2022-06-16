@@ -34,7 +34,7 @@ const MainNavigation = () => {
           >
             {strings.home}
           </NavLink>
-          {!isLoggedIn && (
+          {!isLoggedIn ? (
             <Fragment>
               <NavLink
                 to="/auth/login"
@@ -51,6 +51,14 @@ const MainNavigation = () => {
                 {strings.register}
               </NavLink>
             </Fragment>
+          ) : (
+            <NavLink
+              to="/profile"
+              className={classes['menu-item']}
+              activeClassName={classes.active}
+            >
+              {strings.profile}
+            </NavLink>
           )}
         </nav>
       </aside>
