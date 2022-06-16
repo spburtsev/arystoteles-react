@@ -1,24 +1,31 @@
 import { Fragment } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/use-auth';
 import useLocale from '../../hooks/use-locale';
+import cn from 'classnames';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
   const { isLoggedIn } = useAuth();
   const { strings } = useLocale('navigation');
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleHandler = () => {
+    setIsOpen((isOpen) => !isOpen);
+  };
 
   return (
     <Fragment>
-      <div class={classes['menu-toggle']}>
-        <div class={classes.hamburger}>
+      <div className={classes['menu-toggle']} onClick={toggleHandler}>
+        <div className={classes.hamburger}>
           <span></span>
         </div>
       </div>
 
-      <aside class={classes.sidebar}>
+      <aside className={cn(classes.sidebar, isOpen && classes.open)}>
         <h1>Arystoteles</h1>
-        <nav class={classes.menu}>
+        <nav className={classes.menu}>
           <NavLink
             to="/"
             className={classes['menu-item']}

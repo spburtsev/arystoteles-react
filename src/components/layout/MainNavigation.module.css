@@ -124,9 +124,10 @@
     width: 100%;
     max-width: 300px;
     transition: 0.2s linear;
+    z-index: 1;
   }
 
-  .sidebar.is-active {
+  .open {
     left: 0;
   }
 }
