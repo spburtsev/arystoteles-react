@@ -41,8 +41,13 @@ export const me = `${baseRoute}me`;
 export const updateMe = `${baseRoute}updateMe`;
 export const deleteMe = `${baseRoute}deleteMe`;
 
-export const sendGetMeRequest = async () => {
-  const response = await fetch(me);
+export const createGetMeRequest = (token) => async () => {
+  const response = await fetch(me, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: 'GET',
+  });
   const data = await response.json();
   if (!response.ok) {
     throw new Error(data.message || apiErrors.loginError);

@@ -1,13 +1,12 @@
-import useAuth from '../../hooks/use-auth';
+import useLocale from '../../hooks/use-locale';
 import classes from './CommonSection.module.css';
 
 const CommonSection = () => {
-  const authCtx = useAuth();
+  const { strings } = useLocale('profilePage');
 
   return (
     <section className={classes.profile}>
-      <h1>My Profile</h1>
-      <h2>{`Role is: ${authCtx.role}`}</h2>
+      <h1>{strings.myProfile}</h1>
     </section>
   );
 };

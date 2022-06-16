@@ -1,27 +1,26 @@
 import CommonSection from './CommonSection';
 import ChangePasswordForm from './ChangePasswordForm';
-import SidePanelMenu from './SidePanelMenu';
+import useAuth from '../../hooks/use-auth';
+import { useQuery } from 'react-query';
+import { createGetMeRequest } from '../../lib/api/user';
 import classes from './UserProfile.module.css';
 
-const UserProfile = (props) => {
-  const { menu } = props;
-
-  let DisplayedSection;
-  switch (menu.selected.section) {
-    case 'profile':
-      DisplayedSection = CommonSection;
-      break;
-    case 'changePassword':
-      DisplayedSection = ChangePasswordForm;
-      break;
-    default:
-      DisplayedSection = CommonSection;
-  }
+const UserProfile = () => {
+  const auth = useAuth();
+  useQuery('self-profile', createGetMeRequest(auth.token), {
+    onError: (err) => {
+      alert(err.message);
+    },
+    onSuccess: (data) => {
+      console.log(data);
+    },
+  });
 
   return (
     <div className={classes.wrapper}>
-      <SidePanelMenu menuItems={menu.items} />
-      <DisplayedSection />
+      <CommonSection />
+      <hr />
+      <ChangePasswordForm />
     </div>
   );
 };

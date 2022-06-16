@@ -1,9 +1,9 @@
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-// import localeSlice from './locale-slice';
+import profileSlice from './profile-slice';
 
-// const store = configureStore({
-//   reducer: { locale: localeSlice.reducer },
-// });
+const store = configureStore({
+  reducer: { profile: profileSlice.reducer },
+});
 
-// export default store;
+export default store;
