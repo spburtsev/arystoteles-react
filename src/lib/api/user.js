@@ -23,6 +23,8 @@ const sendAuthRequest = async (user, route) => {
   return data;
 };
 
+export const createLoginRequest = (user) => () => sendAuthRequest(user, login);
+
 export const sendLoginRequest = async (user) =>
   await sendAuthRequest(user, login);
 

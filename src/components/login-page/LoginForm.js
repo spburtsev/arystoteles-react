@@ -1,55 +1,49 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import useHttp from '../../hooks/use-http';
 import useLocale from '../../hooks/use-locale';
 import useAuth from '../../hooks/use-auth';
-import { sendLoginRequest } from '../../lib/api/user';
-import RequestStatus from '../../lib/enums/RequestStatus';
+import { useQuery } from 'react-query';
+import { createLoginRequest } from '../../lib/api/user';
 import classes from './LoginForm.module.css';
 
 const LoginForm = () => {
   const auth = useAuth();
+  const { strings } = useLocale('authPage');
   const history = useHistory();
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
-  const {
-    sendRequest: sendLogin,
-    status: loginStatus,
-    data: loginData,
-    error: loginError,
-  } = useHttp(sendLoginRequest);
+  const [loginData, setLoginData] = useState({});
 
-  const { strings } = useLocale('authPage');
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (loginStatus === RequestStatus.Pending) {
-      setIsLoading(true);
-    } else {
-      setIsLoading(false);
-    }
-    if (loginStatus === RequestStatus.Completed && !loginError) {
-      auth.login(
-        loginData.token,
-        loginData.expires,
-        loginData.data?.user?.role,
-      );
-      history.replace('/');
-    } else if (loginError) {
-      alert(loginError.message);
-    }
-  }, [loginStatus, loginData, loginError, auth, history]);
+  const { isLoading, refetch } = useQuery(
+    'login',
+    createLoginRequest(loginData),
+    {
+      enabled: false,
+      retry: false,
+      onError: (err) => {
+        alert(err.message);
+      },
+      onSuccess: (data) => {
+        if (!data.token) {
+          alert(strings.loginError);
+          return;
+        }
+        auth.login(data.token, data.expires, data.data.user.role);
+        history.replace('/');
+      },
+    },
+  );
 
   const submitHandler = (event) => {
     event.preventDefault();
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-
-    sendLogin({
+    setLoginData({
       email: enteredEmail,
       password: enteredPassword,
     });
+    refetch();
   };
 
   return (

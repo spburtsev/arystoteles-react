@@ -30,6 +30,7 @@ const localization = new LocalizedStrings({
       login: 'Sign in',
       name: 'Name',
       surname: 'Surname',
+      loginError: 'An error occurred while signing in',
       country: 'Country',
       city: 'City',
       youAre: 'You are',
@@ -104,6 +105,7 @@ const localization = new LocalizedStrings({
     },
     authPage: {
       login: 'Увійти',
+      loginError: 'Увійти не вдалося!',
       register: 'Зареєструватися',
       forgotPassword: 'Забув пароль',
       resetPassword: 'Сбросити пароль',
