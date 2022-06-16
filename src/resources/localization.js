@@ -52,7 +52,7 @@ const localization = new LocalizedStrings({
       medic: 'Medic',
       caregiver: 'Caregiver',
       organizationAdministrator: 'Administrator',
-      administrator: 'Administrator',
+      admin: 'Administrator',
     },
     profilePage: {
       myProfile: 'My Profile',
@@ -129,6 +129,7 @@ const localization = new LocalizedStrings({
       medic: 'Лікар',
       caregiver: 'Опікун',
       organizationAdministrator: 'Адміністратор',
+      admin: 'Адміністратор',
     },
     profilePage: {
       myProfile: 'Мій профіль',
