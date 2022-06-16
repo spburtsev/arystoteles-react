@@ -2,11 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import _ from 'lodash';
 
 const initialState = {
-  country: '',
-  email: '',
-  firstName: '',
-  lastName: '',
-  preferredLocale: '',
+  profile: {
+    country: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    preferredLocale: '',
+  },
 };
 
 const profileSlice = createSlice({
@@ -14,13 +16,13 @@ const profileSlice = createSlice({
   initialState: initialState,
   reducers: {
     setProfile: (state, action) => {
-      state = _.pick(action.payload, Object.keys(initialState));
+      state.profile = _.pick(action.payload, Object.keys(initialState.profile));
     },
   },
 });
 
 export const { setProfile } = profileSlice.actions;
 
-export const selectProfile = (state) => state;
+export const selectProfile = (state) => state.profile.profile;
 
 export default profileSlice;

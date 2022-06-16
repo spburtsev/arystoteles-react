@@ -55,6 +55,9 @@ const localization = new LocalizedStrings({
       admin: 'Administrator',
     },
     profilePage: {
+      firstName: 'First name',
+      lastName: 'Last name',
+      email: 'Email',
       myProfile: 'My Profile',
       editProfile: 'Edit Profile',
       deleteProfile: 'Delete Profile',
@@ -132,6 +135,9 @@ const localization = new LocalizedStrings({
       admin: 'Адміністратор',
     },
     profilePage: {
+      firstName: "Ім'я",
+      lastName: 'Прізвище',
+      email: 'Пошта',
       myProfile: 'Мій профіль',
       editProfile: 'Редагувати профіль',
       deleteProfile: 'Видалити профіль',
