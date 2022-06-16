@@ -4,6 +4,7 @@ import LocaleContext from '../../context/locale-context';
 import AuthContext from '../../context/auth-context';
 import { NavLink } from 'react-router-dom';
 import classes from './AppHeader.module.css';
+import LocaleButtons from './LocaleButtons';
 
 const AppHeader = () => {
   const authCtx = useContext(AuthContext);
@@ -20,14 +21,8 @@ const AppHeader = () => {
   return (
     <header className={classes.header}>
       <nav>
+        <LocaleButtons />
         <ul>
-          {!isLoggedIn && (
-            <li>
-              <NavLink to="/auth/login" activeClassName={classes.active}>
-                {localizationObj.navigation.login}
-              </NavLink>
-            </li>
-          )}
           {isLoggedIn && (
             <li>
               <NavLink to="/profile" activeClassName={classes.active}>

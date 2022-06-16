@@ -5,6 +5,5 @@
 
 .main {
   flex: 1 1 0;
-  padding: 2rem;
   min-height: calc(100vh - 10rem);
 }
