@@ -9,9 +9,11 @@ import OrganizationsPage from './pages/OrganizationsPage';
 import OrganizationDetailsPage from './pages/OrganizationDetailsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
+import UserRole from './lib/enums/UserRole';
+import BackupsPage from './pages/BackupsPage';
 
 const App = () => {
-  const authCtx = useAuth();
+  const { isLoggedIn, role } = useAuth();
 
   return (
     <Layout>
@@ -28,7 +30,7 @@ const App = () => {
         <Route path="/organizations/:id">
           <OrganizationDetailsPage />
         </Route>
-        {!authCtx.isLoggedIn && (
+        {!isLoggedIn && (
           <Fragment>
             <Route path="/auth/register">
               <RegisterPage />
@@ -39,9 +41,14 @@ const App = () => {
           </Fragment>
         )}
         <Route path="/profile">
-          {authCtx.isLoggedIn && <ProfilePage />}
-          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
+          {isLoggedIn && <ProfilePage />}
+          {!isLoggedIn && <Redirect to="/auth" />}
         </Route>
+        {(role === UserRole.Seed || role === UserRole.Admin) && (
+          <Route path="/backups">
+            <BackupsPage />
+          </Route>
+        )}
         <Route path="*">
           <NotFoundPage />
         </Route>
