@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { createPortal } from 'react-dom';
 import useLocale from '../../../hooks/use-locale';
+import AdjustmentIcon from '../../icons/AdjustmentIcon';
 import classes from './BackupDetailsModal.module.css';
 
 const BackupDetailsModal = ({ onClose, backup }) => {
@@ -22,6 +23,12 @@ const BackupDetailsModal = ({ onClose, backup }) => {
               <h1>{`${strings.createdBy}:`}</h1>
             </Fragment>
           )}
+          <section className={classes.method}>
+            <span>
+              <AdjustmentIcon />
+              <p>{`${strings.method}: ${backup.method}`}</p>
+            </span>
+          </section>
         </div>,
         portalElement,
       )}

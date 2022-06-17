@@ -96,6 +96,7 @@ const localization = new LocalizedStrings({
       total: 'Total',
       createdBySystem: 'Created automatically',
       details: 'Details',
+      method: 'Method',
     },
   },
   [AppLocale.Ukrainian]: {
@@ -192,6 +193,7 @@ const localization = new LocalizedStrings({
       total: 'Всього',
       createdBySystem: 'Створено автоматично',
       details: 'Деталі',
+      method: 'Метод',
     },
   },
 });
