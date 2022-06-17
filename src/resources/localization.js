@@ -85,6 +85,15 @@ const localization = new LocalizedStrings({
     apiErrors: {
       loginError: 'Login failed!',
     },
+    backups: {
+      title: 'Backups',
+      noBackups: 'No backups found',
+      createNew: 'Create new backup',
+      restore: 'Restore',
+      createdAt: 'Created at',
+      createdBy: 'Created by',
+      name: 'Name',
+    },
   },
   [AppLocale.Ukrainian]: {
     navigation: {
@@ -168,6 +177,15 @@ const localization = new LocalizedStrings({
     },
     apiErrors: {
       loginError: 'Не вдалося увійти!',
+    },
+    backups: {
+      title: 'Резервні копії',
+      noBackups: 'Немає резервних копій',
+      createNew: 'Створити нову резервну копію',
+      restore: 'Відновити',
+      createdAt: 'Створено',
+      createdBy: 'Створено користувачем',
+      name: 'Назва',
     },
   },
 });
