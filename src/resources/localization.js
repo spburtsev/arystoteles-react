@@ -93,6 +93,7 @@ const localization = new LocalizedStrings({
       createdAt: 'Created at',
       createdBy: 'Created by',
       name: 'Name',
+      total: 'Total',
     },
   },
   [AppLocale.Ukrainian]: {
@@ -186,6 +187,7 @@ const localization = new LocalizedStrings({
       createdAt: 'Створено',
       createdBy: 'Створено користувачем',
       name: 'Назва',
+      total: 'Всього',
     },
   },
 });
