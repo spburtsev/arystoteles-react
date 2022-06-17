@@ -13,6 +13,7 @@ const localization = new LocalizedStrings({
       organizations: 'Organizations',
       backups: 'Backups',
       notifications: 'Notifications',
+      users: 'Users',
     },
     homePage: {
       welcome: 'Welcome to Arystoteles',
@@ -115,6 +116,7 @@ const localization = new LocalizedStrings({
       organizations: 'Організації',
       backups: 'Резервні копії',
       notifications: 'Повідомлення',
+      users: 'Користувачі',
     },
     homePage: {
       welcome: 'Ласкаво просимо на Arystoteles',

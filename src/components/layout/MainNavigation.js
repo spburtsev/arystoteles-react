@@ -62,14 +62,30 @@ const MainNavigation = () => {
                 {strings.profile}
               </NavLink>
               {[UserRole.Admin, UserRole.Seed].includes(role) && (
-                <NavLink
-                  to="/backups"
-                  className={classes['menu-item']}
-                  activeClassName={classes.active}
-                >
-                  {strings.backups}
-                </NavLink>
+                <Fragment>
+                  <NavLink
+                    to="/backups"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.backups}
+                  </NavLink>
+                  <NavLink
+                    to="/users"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.users}
+                  </NavLink>
+                </Fragment>
               )}
+              <NavLink
+                to="/notifications"
+                className={classes['menu-item']}
+                activeClassName={classes.active}
+              >
+                {strings.notifications}
+              </NavLink>
             </Fragment>
           )}
         </nav>

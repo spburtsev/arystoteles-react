@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
 import UserRole from './lib/enums/UserRole';
 import BackupsPage from './pages/BackupsPage';
+import NotificationsPage from './pages/NotificationsPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
@@ -42,11 +43,16 @@ const App = () => {
         )}
         <Route path="/profile">
           {isLoggedIn && <ProfilePage />}
-          {!isLoggedIn && <Redirect to="/auth" />}
+          {!isLoggedIn && <Redirect to="/auth/login" />}
         </Route>
-        {(role === UserRole.Seed || role === UserRole.Admin) && (
+        {[UserRole.Seed, UserRole.Admin].includes(role) && (
           <Route path="/backups">
             <BackupsPage />
+          </Route>
+        )}
+        {isLoggedIn && (
+          <Route path="/notifications" exact>
+            <NotificationsPage />
           </Route>
         )}
         <Route path="*">
