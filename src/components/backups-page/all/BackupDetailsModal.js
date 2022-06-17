@@ -23,12 +23,10 @@ const BackupDetailsModal = ({ onClose, backup }) => {
               <h1>{`${strings.createdBy}:`}</h1>
             </Fragment>
           )}
-          <section className={classes.method}>
-            <span>
-              <AdjustmentIcon />
-              <p>{`${strings.method}: ${backup.method}`}</p>
-            </span>
-          </section>
+          <div className={classes.method}>
+            <AdjustmentIcon />
+            <p>{`${strings.method}: ${backup.method}`}</p>
+          </div>
         </div>,
         portalElement,
       )}

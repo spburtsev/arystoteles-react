@@ -39,3 +39,20 @@
     transform: translateY(0);
   }
 }
+
+.method {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.method svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #38015c;
+}
+
+.method p {
+  padding: 8px;
+  margin: 0;
+}
