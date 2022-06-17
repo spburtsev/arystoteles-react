@@ -11,6 +11,7 @@ const localization = new LocalizedStrings({
       home: 'Home',
       profile: 'Profile',
       organizations: 'Organizations',
+      backups: 'Backups',
     },
     homePage: {
       welcome: 'Welcome to Arystoteles',
@@ -94,6 +95,7 @@ const localization = new LocalizedStrings({
       logout: 'Вийти',
       profile: 'Профіль',
       organizations: 'Організації',
+      backups: 'Резервні копії',
     },
     homePage: {
       welcome: 'Ласкаво просимо на Arystoteles',
