@@ -1,4 +1,6 @@
+import BackupsList from '../components/backups-page/all/BackupsList';
+
 const BackupsPage = () => {
-  return <h1>Backups</h1>;
+  return <BackupsList />;
 };
 export default BackupsPage;
