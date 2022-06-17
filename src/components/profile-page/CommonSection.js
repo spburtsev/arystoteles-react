@@ -1,13 +1,24 @@
 import useLocale from '../../hooks/use-locale';
-import { useSelector } from 'react-redux';
-import { selectProfile } from '../../context/profile-slice';
-import classes from './CommonSection.module.css';
+import useAuth from '../../hooks/use-auth';
+import { useQuery } from 'react-query';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import { createGetMeRequest } from '../../lib/api/user';
+import classes from './CommonSection.module.css';
 
-const CommonSection = ({ isLoading }) => {
+const CommonSection = () => {
   const { strings } = useLocale('profilePage');
-  const profile = useSelector(selectProfile);
-  console.log(profile);
+  const { token } = useAuth();
+  const { data, isLoading } = useQuery(
+    'self-profile',
+    createGetMeRequest(token),
+    {
+      onError: (err) => {
+        alert(err.message);
+      },
+    },
+  );
+
+  const usrData = data ? data.data : {};
 
   return (
     <section className={classes.profile}>
@@ -19,15 +30,15 @@ const CommonSection = ({ isLoading }) => {
           <tbody>
             <tr>
               <td>{strings.firstName}</td>
-              <td>{profile.firstName}</td>
+              <td>{usrData.firstName}</td>
             </tr>
             <tr>
               <td>{strings.lastName}</td>
-              <td>{profile.lastName}</td>
+              <td>{usrData.lastName}</td>
             </tr>
             <tr>
               <td>{strings.email}</td>
-              <td>{profile.email}</td>
+              <td>{usrData.email}</td>
             </tr>
           </tbody>
         </table>
