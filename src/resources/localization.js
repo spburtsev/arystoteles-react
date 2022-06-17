@@ -66,6 +66,9 @@ const localization = new LocalizedStrings({
       downloadData: 'Download Data',
       newPassword: 'New Password',
       changePassword: 'Change Password',
+      edit: 'Edit',
+      submit: 'Submit',
+      cancel: 'Cancel',
     },
     organizationsPage: {
       country: 'Country',
@@ -146,6 +149,9 @@ const localization = new LocalizedStrings({
       downloadData: 'Завантажити дані',
       newPassword: 'Новий пароль',
       changePassword: 'Змінити пароль',
+      edit: 'Редагувати',
+      submit: 'Підтвердити',
+      cancel: 'Відміна',
     },
     organizationsPage: {
       country: 'Країна',

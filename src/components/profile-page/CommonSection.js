@@ -26,23 +26,20 @@ const CommonSection = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <table>
-          <tbody>
-            <tr>
-              <td>{strings.firstName}</td>
-              <td>{usrData.firstName}</td>
-            </tr>
-            <tr>
-              <td>{strings.lastName}</td>
-              <td>{usrData.lastName}</td>
-            </tr>
-            <tr>
-              <td>{strings.email}</td>
-              <td>{usrData.email}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className={classes.control}>
+          <label>{strings.firstName}</label>
+          <p>{usrData.firstName}</p>
+
+          <label>{strings.lastName}</label>
+          <p>{usrData.lastName}</p>
+
+          <label>{strings.email}</label>
+          <p>{usrData.email}</p>
+        </div>
       )}
+      <div className={classes.action}>
+        <button>{strings.edit}</button>
+      </div>
     </section>
   );
 };
