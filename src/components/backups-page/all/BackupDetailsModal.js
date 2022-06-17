@@ -15,7 +15,13 @@ const BackupDetailsModal = ({ onClose, backup }) => {
       )}
       {createPortal(
         <div className={classes.modal}>
-          {backup.system ? <h1>{strings.system}</h1> : <p>usr</p>}
+          {backup.system ? (
+            <h1>{strings.createdBySystem}</h1>
+          ) : (
+            <Fragment>
+              <h1>{`${strings.createdBy}:`}</h1>
+            </Fragment>
+          )}
         </div>,
         portalElement,
       )}
