@@ -19,7 +19,11 @@ const BackupsList = () => {
     <LoadingSpinner />
   ) : (
     <Fragment>
-      <h1>{`${strings.total}: ${data.total}`}</h1>
+      <div className={classes.actions}>
+        <h1>{`${strings.total}: ${data.total}`}</h1>
+        <button>{strings.createNew}</button>
+      </div>
+
       <ul className={classes.list}>
         {data.backups.map((item) => (
           <BackupItem key={item._id} id={item._id} {...item} />

@@ -10,95 +10,49 @@
   gap: 1rem;
 }
 
-.item img {
-  width: 100%;
-  object-fit: cover;
-  height: 10rem;
-}
-
-.content {
-  width: 100%;
-  padding: 0 1rem;
-  text-align: center;
-}
-
 .content h2 {
   margin: 0.5rem 0;
 }
 
-.date,
-.address {
+.date {
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
 
-.date svg,
-.address svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #38015c;
-}
-
-.content time {
-  color: #38015c;
-  font-weight: bold;
-}
-
-.content address {
-  margin: 0.5rem 0;
-  color: #38015c;
-  white-space: pre;
-}
-
 .actions {
-  display: flex;
-  flex-direction: column;
   padding: 1rem;
 }
 
-.actions a {
-  display: block;
+.actions button {
+  font: inherit;
+  background-color: rgb(216, 188, 253);
+  border: 1px solid #38015c;
+  color: #38015c;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-right: 8px;
 }
 
-.actions a span {
-  vertical-align: middle;
+.actions :last-of-type button {
+  margin-left: 8px;
 }
 
-.icon {
-  margin-left: 0.5rem;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
+.actions button:hover {
+  background-color: #c291e2;
 }
 
 @media (min-width: 768px) {
-  .item {
-    flex-direction: row;
-  }
-
-  .item img {
-    width: 40%;
-    height: 14rem;
-  }
-
   .content {
-    width: 60%;
+    width: 100%;
     padding: 0;
     text-align: left;
   }
 
   .content h2 {
     margin: 1rem 0;
-  }
-
-  .actions {
-    flex-direction: row;
-    justify-content: flex-end;
   }
 }
