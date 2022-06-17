@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { useState } from 'react';
 import useLocale from '../../../hooks/use-locale';
 import BackupDetailsModal from './BackupDetailsModal';
+import RestoreModal from './RestoreModal';
 import classes from './BackupItem.module.css';
 
 const BackupItem = ({ fileName, createdAt, method, system, createdBy }) => {
@@ -30,6 +31,9 @@ const BackupItem = ({ fileName, createdAt, method, system, createdBy }) => {
           }}
         />
       )}
+      {modal === 'restore' && (
+        <RestoreModal name={fileName} onClose={modalCloseHandler} />
+      )}
       <li className={classes.item}>
         <div className={classes.content}>
           <div className={classes.summary}>
@@ -40,7 +44,9 @@ const BackupItem = ({ fileName, createdAt, method, system, createdBy }) => {
             <button onClick={createModalHandler('details')}>
               {strings.details}
             </button>
-            <button>{strings.restore}</button>
+            <button onClick={createModalHandler('restore')}>
+              {strings.restore}
+            </button>
           </div>
         </div>
       </li>

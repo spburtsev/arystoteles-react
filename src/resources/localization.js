@@ -97,6 +97,10 @@ const localization = new LocalizedStrings({
       createdBySystem: 'Created automatically',
       details: 'Details',
       method: 'Method',
+      error: 'An error occurred',
+      areYouSure: 'Are you sure?',
+      submit: 'Submit',
+      cancel: 'Cancel',
     },
   },
   [AppLocale.Ukrainian]: {
@@ -194,6 +198,10 @@ const localization = new LocalizedStrings({
       createdBySystem: 'Створено автоматично',
       details: 'Деталі',
       method: 'Метод',
+      error: 'Помилка',
+      areYouSure: 'Ви впевнені?',
+      submit: 'Підтвердити',
+      cancel: 'Відміна',
     },
   },
 });
