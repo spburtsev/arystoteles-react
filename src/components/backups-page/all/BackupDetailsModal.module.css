@@ -41,6 +41,7 @@
 }
 
 .method {
+  margin-top: 12px;
   border-radius: 8px;
   background-color: rgb(216, 188, 253);
   padding: 16px;

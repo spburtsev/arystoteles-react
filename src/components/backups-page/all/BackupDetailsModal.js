@@ -7,6 +7,7 @@ import classes from './BackupDetailsModal.module.css';
 const BackupDetailsModal = ({ onClose, backup }) => {
   const portalElement = document.getElementById('modal');
   const { strings } = useLocale('backups');
+  const { system, createdBy, createdAt, method } = backup;
 
   return (
     <Fragment>
@@ -16,16 +17,23 @@ const BackupDetailsModal = ({ onClose, backup }) => {
       )}
       {createPortal(
         <div className={classes.modal}>
-          {backup.system ? (
+          {system ? (
             <h1>{strings.createdBySystem}</h1>
           ) : (
             <Fragment>
               <h1>{`${strings.createdBy}:`}</h1>
+              <section className={classes.usr}>
+                <p>{createdBy.email}</p>
+                <p>{`${createdBy.firstName} ${createdBy.lastName}`}</p>
+              </section>
             </Fragment>
           )}
+          <date>{`${strings.createdAt}: ${new Date(
+            createdAt,
+          ).toLocaleString()}`}</date>
           <div className={classes.method}>
             <AdjustmentIcon />
-            <p>{`${strings.method}: ${backup.method}`}</p>
+            <p>{`${strings.method}: ${method}`}</p>
           </div>
         </div>,
         portalElement,
