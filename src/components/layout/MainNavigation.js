@@ -77,6 +77,20 @@ const MainNavigation = () => {
                   >
                     {strings.users}
                   </NavLink>
+                  <NavLink
+                    to="/activities"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.activities}
+                  </NavLink>
+                  <NavLink
+                    to="/tips"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.tips}
+                  </NavLink>
                 </Fragment>
               )}
               <NavLink
