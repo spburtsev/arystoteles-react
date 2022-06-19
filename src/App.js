@@ -20,7 +20,6 @@ import NewQuestionPage from './pages/NewQuestionPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
-  console.log(isLoggedIn, role);
 
   return (
     <Layout>
