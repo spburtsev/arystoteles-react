@@ -15,6 +15,7 @@ import DurationTag from '../common/DurationTag';
 import FrequencyTag from '../common/FrequencyTag';
 import EditActivity from './EditActivity';
 import DeleteActivity from './DeleteActivity';
+import GoBack from '../../ui/GoBack';
 import classes from './ActivityDetails.module.css';
 
 const ActivityDetails = ({ activityId }) => {
@@ -71,6 +72,7 @@ const ActivityDetails = ({ activityId }) => {
           mutation={deleteMutation}
         />
       )}
+      <GoBack route="activities" />
       <section className={classes.summary}>
         <h1>
           <Emoji label="UA" symbol="🇺🇦" />

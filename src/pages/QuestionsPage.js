@@ -1,4 +1,6 @@
+import QuestionsList from '../components/questions-page/all/QuestionsList';
+
 const QuestionsPage = () => {
-  return <h1>Questions</h1>;
+  return <QuestionsList />;
 };
 export default QuestionsPage;

@@ -1,8 +1,12 @@
 import LocalizedStrings from 'localized-strings';
 import AppLocale from '../lib/enums/AppLocale';
+import QuestionCategory from '../lib/enums/QuestionCategory';
 
 const localization = new LocalizedStrings({
   [AppLocale.English]: {
+    common: {
+      back: 'Back',
+    },
     navigation: {
       title: 'Arystoteles',
       login: 'Sign in',
@@ -134,9 +138,35 @@ const localization = new LocalizedStrings({
       areYouSureToDelete: 'Are you sure you want to delete this activity?',
       total: 'Total',
       createNew: 'Create new activity',
+      goBack: 'Go back',
+    },
+    questions: {
+      explore: 'Details',
+      unkown: 'Unknown',
+      min: 'min',
+      submit: 'Submit',
+      cancel: 'Cancel',
+      edit: 'Edit',
+      title: 'Title',
+      description: 'Description',
+      category: 'Category',
+      ageLowerBoundMounths: 'Age lower bound (months)',
+      ageUpperBoundMounths: 'Age upper bound (months)',
+      areYouSureToDelete: 'Are you sure you want to delete this question?',
+      total: 'Total',
+      createNew: 'Create new question',
+      goBack: 'Go back',
+      [QuestionCategory.Developmental]: 'Developmental',
+      [QuestionCategory.EmotionalChanges]: 'EmotionalChanges',
+      [QuestionCategory.FamilyQuestion]: 'FamilyQuestion',
+      [QuestionCategory.ParentConcern]: 'ParentConcern',
+      [QuestionCategory.Symptomatic]: 'Symptomatic',
     },
   },
   [AppLocale.Ukrainian]: {
+    common: {
+      back: 'Назад',
+    },
     navigation: {
       title: 'Arystoteles',
       login: 'Увійти',
@@ -268,6 +298,29 @@ const localization = new LocalizedStrings({
       areYouSureToDelete: 'Ви впевнені, що хочете видалити?',
       total: 'Всього',
       createNew: 'Створити нову активність',
+      goBack: 'Назад',
+    },
+    questions: {
+      explore: 'Детальніше',
+      unkown: 'Невідомо',
+      min: 'хв',
+      submit: 'Підтвердити',
+      cancel: 'Відміна',
+      edit: 'Редагувати',
+      title: 'Назва',
+      description: 'Опис',
+      category: 'Категорія',
+      ageLowerBoundMounths: 'Мінімальний вік, міс',
+      ageUpperBoundMounths: 'Максимальний вік, міс',
+      areYouSureToDelete: 'Ви впевнені, що хочете видалити?',
+      total: 'Всього',
+      createNew: 'Створити нове питання',
+      goBack: 'Назад',
+      [QuestionCategory.Developmental]: 'Розвиток',
+      [QuestionCategory.EmotionalChanges]: 'Емоційні зміни',
+      [QuestionCategory.FamilyQuestion]: 'Питання зі сімейною відповіддю',
+      [QuestionCategory.ParentConcern]: 'Питання зі батькові',
+      [QuestionCategory.Symptomatic]: 'Симптоматичні зміни',
     },
   },
 });

@@ -1,0 +1,41 @@
+.list {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+}
+
+.actions {
+  padding: 1rem;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px #c291e2;
+}
+
+.actions button {
+  font: inherit;
+  background-color: transparent;
+  border: 2px solid #38015c;
+  color: #38015c;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-right: 8px;
+}
+
+.actions button:hover {
+  border-color: #c291e2;
+  color: #c291e2;
+}
+
+@media (min-width: 768px) {
+  .actions {
+    width: 100%;
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,33 @@
+.link svg {
+  width: 2rem;
+  height: 2rem;
+  color: #38015c;
+  margin-left: 8px;
+}
+.link {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.link a:hover {
+  color: #960650;
+}
+
+.link svg:hover {
+  color: #960650;
+  transition: all 0.2s ease-in-out;
+}
+
+.link span {
+  font-size: 24px;
+  line-height: 2rem;
+  font-weight: bold;
+  margin: 0;
+  border-bottom: 2px solid #38015c;
+  color: #38015c;
+}
+
+.link span:hover {
+  color: #960650;
+  transition: all 0.2s ease-in-out;
+}

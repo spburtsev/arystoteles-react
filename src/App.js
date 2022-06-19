@@ -1,5 +1,4 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Fragment } from 'react';
 import useAuth from './hooks/use-auth';
 import Layout from './components/layout/Layout';
 import ProfilePage from './pages/ProfilePage';
@@ -17,9 +16,11 @@ import ActivityDetailsPage from './pages/ActivityDetailsPage';
 import TipsPage from './pages/TipsPage';
 import QuestionsPage from './pages/QuestionsPage';
 import QuestionDetailsPage from './pages/QuestionDetailsPage';
+import NewQuestionPage from './pages/NewQuestionPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
+  console.log(isLoggedIn, role);
 
   return (
     <Layout>
@@ -37,21 +38,26 @@ const App = () => {
           <OrganizationDetailsPage />
         </Route>
         {!isLoggedIn && (
-          <Fragment>
+          <Switch>
             <Route exact path="/auth/register">
               <RegisterPage />
             </Route>
             <Route exact path="/auth/login">
               <LoginPage />
             </Route>
-          </Fragment>
+          </Switch>
         )}
         <Route path="/profile" exact>
           {isLoggedIn && <ProfilePage />}
           {!isLoggedIn && <Redirect to="/auth/login" />}
         </Route>
+        {isLoggedIn && (
+          <Route exact path="/notifications">
+            <NotificationsPage />
+          </Route>
+        )}
         {[UserRole.Seed, UserRole.Admin].includes(role) && (
-          <Fragment>
+          <Switch>
             <Route exact path="/backups">
               <BackupsPage />
             </Route>
@@ -64,18 +70,17 @@ const App = () => {
             <Route exact path="/questions">
               <QuestionsPage />
             </Route>
+            <Route exact path="/questions/new">
+              <NewQuestionPage />
+            </Route>
+
             <Route path="/questions/:questionId">
               <QuestionDetailsPage />
             </Route>
             <Route exact path="/tips">
               <TipsPage />
             </Route>
-          </Fragment>
-        )}
-        {isLoggedIn && (
-          <Route exact path="/notifications">
-            <NotificationsPage />
-          </Route>
+          </Switch>
         )}
         <Route path="*">
           <NotFoundPage />

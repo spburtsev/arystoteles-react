@@ -1,4 +1,9 @@
+import QuestionDetails from '../components/questions-page/details/QuestionDetails';
+import { useParams } from 'react-router-dom';
+
 const QuestionDetailsPage = () => {
-  return <h1>Question Details</h1>;
+  const { questionId } = useParams();
+
+  return <QuestionDetails questionId={questionId} />;
 };
 export default QuestionDetailsPage;

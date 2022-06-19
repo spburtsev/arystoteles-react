@@ -1,0 +1,12 @@
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.1rem 0.3rem;
+  border: solid 1px;
+  text-align: left;
+  white-space: nowrap;
+  background-color: rgba(255, 165, 0, 0.2);
+  color: orange;
+  border-color: orange;
+}
