@@ -1,4 +1,6 @@
+import ActivitiesList from '../components/activities-page/all/ActivitiesList';
+
 const ActivitiesPage = () => {
-  return <h1>Activities</h1>;
+  return <ActivitiesList />;
 };
 export default ActivitiesPage;

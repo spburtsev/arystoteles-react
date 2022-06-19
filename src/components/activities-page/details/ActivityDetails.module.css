@@ -1,0 +1,86 @@
+.summary {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 1rem;
+}
+
+.actions {
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+  gap: 1rem;
+}
+
+.tags {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tags span {
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tags > span > span {
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  padding: 0.1rem 0.8rem;
+  white-space: nowrap;
+}
+
+.description {
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 1.25rem;
+  background-color: rgb(216, 188, 253);
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 1rem;
+}
+
+.btn {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  background-color: #38015c;
+  color: white;
+  border: 1px solid #38015c;
+}
+
+.btn:hover {
+  background-color: #540d83;
+  border-color: #540d83;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  background-color: #a31111;
+  color: white;
+  border: 1px solid #a31111;
+}
+
+.delete:hover {
+  background-color: #a12f2f;
+  border-color: #a12f2f;
+  transition: all 0.2s ease-in-out;
+}

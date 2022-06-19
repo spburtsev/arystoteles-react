@@ -13,6 +13,7 @@ import UserRole from './lib/enums/UserRole';
 import BackupsPage from './pages/BackupsPage';
 import NotificationsPage from './pages/NotificationsPage';
 import ActivitiesPage from './pages/ActivitiesPage';
+import ActivityDetailsPage from './pages/ActivityDetailsPage';
 import TipsPage from './pages/TipsPage';
 
 const App = () => {
@@ -54,6 +55,9 @@ const App = () => {
             </Route>
             <Route path="/activities" exact>
               <ActivitiesPage />
+            </Route>
+            <Route path="/activities/:activityId">
+              <ActivityDetailsPage />
             </Route>
             <Route path="/tips" exact>
               <TipsPage />

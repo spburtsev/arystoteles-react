@@ -54,14 +54,13 @@
   flex: 1 1 0;
   max-width: 300px;
   padding: 2rem 1rem;
-  background-color: #38015c;
+  background: linear-gradient(#38015c, #38015c, #960650);
   flex-direction: column;
-
   justify-content: space-between;
 }
 
 .sidebar h1 {
-  color: #fff;
+  color: rgb(216, 188, 253);
   pointer-events: none;
   margin-bottom: 0.5em;
 }
