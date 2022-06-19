@@ -91,6 +91,13 @@ const MainNavigation = () => {
                   >
                     {strings.tips}
                   </NavLink>
+                  <NavLink
+                    to="/questions"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.questions}
+                  </NavLink>
                 </Fragment>
               )}
               <NavLink

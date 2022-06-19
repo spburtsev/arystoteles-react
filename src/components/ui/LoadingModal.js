@@ -1,9 +1,10 @@
-import { Fragment, createPortal } from 'react';
+import { Fragment } from 'react';
+import { createPortal } from 'react-dom';
 import LoadingSpinner from './LoadingSpinner';
 import classes from './LoadingModal.module.css';
 
 const LoadingModal = () => {
-  const portalElement = document.getElementById('modal');
+  const portalElement = document.getElementById('blocker');
 
   return (
     <Fragment>

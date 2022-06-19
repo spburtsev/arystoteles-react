@@ -3,35 +3,31 @@ import { createPortal } from 'react-dom';
 import useAuth from '../../../hooks/use-auth';
 import useLocale from '../../../hooks/use-locale';
 import useInput from '../../../hooks/use-input';
-import AppLocale from '../../../lib/enums/AppLocale';
 import cn from 'classnames';
-import { matchGroupsToRange } from '../../../lib/helpers/map-age-group';
 import mapFrequency from '../../../lib/helpers/map-frequency';
 import mapCategory from '../../../lib/helpers/map-category';
 import ActivityFrequency from '../../../lib/enums/ActivityFrequency';
 import ActivityCategory from '../../../lib/enums/ActivityCategory';
 import LoadingModal from '../../ui/LoadingModal';
-import classes from './EditActivity.module.css';
+import classes from './NewActivity.module.css';
 
-const EditActivity = ({ activity, onClose, mutation }) => {
+const NewActivity = ({ onClose, mutation }) => {
   const portalElement = document.getElementById('modal');
-  const ageGroupsRange = matchGroupsToRange(activity.ageGroups);
   const { token } = useAuth();
   const { strings } = useLocale('activities');
-  const titleUa = useInput(activity.title[AppLocale.Ukrainian]);
-  const titleEn = useInput(activity.title[AppLocale.English]);
-  const descUa = useInput(activity.description[AppLocale.Ukrainian]);
-  const descEn = useInput(activity.description[AppLocale.English]);
-  const ageLowerBound = useInput(ageGroupsRange.lowerBound);
-  const ageUpperBound = useInput(ageGroupsRange.upperBound);
-  const duration = useInput(activity.duration);
+  const titleUa = useInput('');
+  const titleEn = useInput('');
+  const descUa = useInput('');
+  const descEn = useInput('');
+  const ageLowerBound = useInput('0');
+  const ageUpperBound = useInput('0');
+  const duration = useInput('15');
   const categoryRef = useRef(null);
   const frequencyRef = useRef(null);
 
   const submitHandler = (event) => {
     event.preventDefault();
     const values = {
-      _id: activity._id,
       titleUa: titleUa.value,
       titleEn: titleEn.value,
       descUa: descUa.value,
@@ -176,4 +172,4 @@ const EditActivity = ({ activity, onClose, mutation }) => {
     </Fragment>
   );
 };
-export default EditActivity;
+export default NewActivity;

@@ -40,32 +40,40 @@
   }
 }
 
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  margin-top: 1rem;
+}
+
 .btn {
   font: inherit;
   cursor: pointer;
   padding: 0.5rem 1.5rem;
   border-radius: 8px;
+  width: 100%;
 }
 
-.submit {
+.cancel {
   background-color: #38015c;
   color: white;
   border: 1px solid #38015c;
 }
 
-.submit:hover {
+.cancel:hover {
   background-color: #540d83;
   border-color: #540d83;
   transition: all 0.2s ease-in-out;
 }
 
-.delete {
+.submit {
   background-color: #a31111;
   color: white;
   border: 1px solid #a31111;
 }
 
-.delete:hover {
+.submit:hover {
   background-color: #a12f2f;
   border-color: #a12f2f;
   transition: all 0.2s ease-in-out;

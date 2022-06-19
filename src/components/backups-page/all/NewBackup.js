@@ -1,19 +1,22 @@
 import { Fragment } from 'react';
 import { createPortal } from 'react-dom';
-import useLocale from '../../../hooks/use-locale';
 import useAuth from '../../../hooks/use-auth';
+import useLocale from '../../../hooks/use-locale';
+import useInput from '../../../hooks/use-input';
 import LoadingModal from '../../ui/LoadingModal';
 import cn from 'classnames';
-import classes from './DeleteActivity.module.css';
+import classes from './NewBackup.module.css';
 
-const DeleteActivity = ({ activityId, onClose, mutation }) => {
+const NewBackup = ({ onClose, mutation }) => {
   const portalElement = document.getElementById('modal');
-  const { strings } = useLocale('activities');
+
   const { token } = useAuth();
+  const { strings } = useLocale('backups');
+  const fileName = useInput(Date.now());
 
   const submitHandler = (event) => {
     event.preventDefault();
-    mutation.mutate({ token, activityId });
+    mutation.mutate({ token, fileName: fileName.value });
   };
 
   return (
@@ -25,11 +28,22 @@ const DeleteActivity = ({ activityId, onClose, mutation }) => {
       )}
       {createPortal(
         <div className={classes.modal}>
-          <h3>{strings.areYouSureToDelete}</h3>
+          <form>
+            <div className={classes.control}>
+              <label htmlFor="fileName">{strings.fileName}</label>
+              <input
+                type="text"
+                id="fileName"
+                value={fileName.value}
+                onChange={fileName.change}
+                onBlur={fileName.blur}
+              />
+            </div>
+          </form>
           <div className={classes.actions}>
             <button
-              onClick={submitHandler}
               className={cn(classes.btn, classes.submit)}
+              onClick={submitHandler}
             >
               {strings.submit}
             </button>
@@ -46,4 +60,4 @@ const DeleteActivity = ({ activityId, onClose, mutation }) => {
     </Fragment>
   );
 };
-export default DeleteActivity;
+export default NewBackup;

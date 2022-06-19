@@ -16,6 +16,7 @@ const localization = new LocalizedStrings({
       users: 'Users',
       activities: 'Activities',
       tips: 'Tips',
+      questions: 'Questions',
     },
     homePage: {
       welcome: 'Welcome to Arystoteles',
@@ -105,6 +106,7 @@ const localization = new LocalizedStrings({
       areYouSure: 'Are you sure?',
       submit: 'Submit',
       cancel: 'Cancel',
+      fileName: 'File name',
     },
     activities: {
       explore: 'Details',
@@ -130,6 +132,8 @@ const localization = new LocalizedStrings({
       ageLowerBoundMounths: 'Age lower bound (months)',
       ageUpperBoundMounths: 'Age upper bound (months)',
       areYouSureToDelete: 'Are you sure you want to delete this activity?',
+      total: 'Total',
+      createNew: 'Create new activity',
     },
   },
   [AppLocale.Ukrainian]: {
@@ -146,6 +150,7 @@ const localization = new LocalizedStrings({
       users: 'Користувачі',
       activities: 'Активності',
       tips: 'Поради',
+      questions: 'Питання',
     },
     homePage: {
       welcome: 'Ласкаво просимо на Arystoteles',
@@ -235,6 +240,7 @@ const localization = new LocalizedStrings({
       areYouSure: 'Ви впевнені?',
       submit: 'Підтвердити',
       cancel: 'Відміна',
+      fileName: 'Назва файлу',
     },
     activities: {
       explore: 'Детальніше',
@@ -260,6 +266,8 @@ const localization = new LocalizedStrings({
       ageLowerBoundMounths: 'Мінімальний вік, міс',
       ageUpperBoundMounths: 'Максимальний вік, міс',
       areYouSureToDelete: 'Ви впевнені, що хочете видалити?',
+      total: 'Всього',
+      createNew: 'Створити нову активність',
     },
   },
 });

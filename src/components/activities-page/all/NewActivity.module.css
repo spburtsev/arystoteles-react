@@ -1,0 +1,169 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 4vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 60rem;
+    left: calc(50% - 30rem);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+}
+
+.actions button:last-of-type {
+  margin-left: 8px;
+}
+
+.submit {
+  background-color: #38015c;
+  color: white;
+  border: 1px solid #38015c;
+}
+
+.submit:hover {
+  background-color: #540d83;
+  border-color: #540d83;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete {
+  background-color: #a31111;
+  color: white;
+  border: 1px solid #a31111;
+}
+
+.delete:hover {
+  background-color: #a12f2f;
+  border-color: #a12f2f;
+  transition: all 0.2s ease-in-out;
+}
+
+.cancel {
+  background-color: #a31111;
+  color: white;
+  border: 1px solid #a31111;
+}
+
+.cancel:hover {
+  background-color: #a12f2f;
+  border-color: #a12f2f;
+  transition: all 0.2s ease-in-out;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+  animation: appear 0.4s ease-out forwards;
+}
+
+.control label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  font: inherit;
+  background-color: #f1e1fc;
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.control textarea {
+  font: inherit;
+  background-color: #f1e1fc;
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.control select {
+  font: inherit;
+  background-color: #f1e1fc;
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 50%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.controls select {
+  font: inherit;
+  background-color: #f1e1fc;
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.triple {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.triple input,
+.triple select {
+  font: inherit;
+  background-color: #f1e1fc;
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}

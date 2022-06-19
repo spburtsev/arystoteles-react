@@ -28,9 +28,9 @@ const BackupDetailsModal = ({ onClose, backup }) => {
               </section>
             </Fragment>
           )}
-          <date>{`${strings.createdAt}: ${new Date(
+          <p>{`${strings.createdAt}: ${new Date(
             createdAt,
-          ).toLocaleString()}`}</date>
+          ).toLocaleString()}`}</p>
           <div className={classes.method}>
             <AdjustmentIcon />
             <p>{`${strings.method}: ${method}`}</p>

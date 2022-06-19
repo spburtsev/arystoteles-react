@@ -1,15 +1,19 @@
 import AgeGroup from '../enums/AgeGroup';
 
 export const matchMonthRange = (lowerBound, upperBound) => {
-  let lastMatch = matchAgeGroup(lowerBound);
-  const range = [lastMatch];
+  let lowerMatch = matchAgeGroup(lowerBound);
+  const range = [lowerMatch];
   for (let i = lowerBound + 1; i <= upperBound; ++i) {
     const match = matchAgeGroup(i);
-    if (match !== lastMatch) {
+    if (!range.some((x) => x === match)) {
       range.push(match);
-      lastMatch = match;
+      console.log(match);
     }
   }
+  if (range.length > 1) {
+    return range.filter((x) => x !== AgeGroup.None);
+  }
+  return range;
 };
 
 export const matchGroupsToRange = (ageGroups) => {

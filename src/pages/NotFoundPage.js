@@ -1,13 +1,12 @@
-import { useContext } from 'react';
-import LocaleContext from '../context/locale-context';
+import useLocale from '../hooks/use-locale';
 
 const NotFound = () => {
-  const { localizationObj } = useContext(LocaleContext);
+  const { strings } = useLocale('notFoundPage');
 
   return (
     <div className="centered">
-      <h1>{localizationObj.notFoundPage.title}</h1>
-      <p>{localizationObj.notFoundPage.message}</p>
+      <h1>{strings.title}</h1>
+      <p>{strings.message}</p>
     </div>
   );
 };

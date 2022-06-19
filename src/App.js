@@ -15,6 +15,8 @@ import NotificationsPage from './pages/NotificationsPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityDetailsPage from './pages/ActivityDetailsPage';
 import TipsPage from './pages/TipsPage';
+import QuestionsPage from './pages/QuestionsPage';
+import QuestionDetailsPage from './pages/QuestionDetailsPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
@@ -22,13 +24,13 @@ const App = () => {
   return (
     <Layout>
       <Switch>
-        <Route path="/" exact>
+        <Route exact path="/">
           <HomePage />
         </Route>
         <Route path="/organizations/all">
           <OrganizationsPage />
         </Route>
-        <Route path="/organizations" exact>
+        <Route exact path="/organizations">
           <Redirect to="/organizations/all" />
         </Route>
         <Route path="/organizations/:id">
@@ -36,36 +38,42 @@ const App = () => {
         </Route>
         {!isLoggedIn && (
           <Fragment>
-            <Route path="/auth/register">
+            <Route exact path="/auth/register">
               <RegisterPage />
             </Route>
-            <Route path="/auth/login">
+            <Route exact path="/auth/login">
               <LoginPage />
             </Route>
           </Fragment>
         )}
-        <Route path="/profile">
+        <Route path="/profile" exact>
           {isLoggedIn && <ProfilePage />}
           {!isLoggedIn && <Redirect to="/auth/login" />}
         </Route>
         {[UserRole.Seed, UserRole.Admin].includes(role) && (
           <Fragment>
-            <Route path="/backups">
+            <Route exact path="/backups">
               <BackupsPage />
             </Route>
-            <Route path="/activities" exact>
+            <Route exact path="/activities">
               <ActivitiesPage />
             </Route>
             <Route path="/activities/:activityId">
               <ActivityDetailsPage />
             </Route>
-            <Route path="/tips" exact>
+            <Route exact path="/questions">
+              <QuestionsPage />
+            </Route>
+            <Route path="/questions/:questionId">
+              <QuestionDetailsPage />
+            </Route>
+            <Route exact path="/tips">
               <TipsPage />
             </Route>
           </Fragment>
         )}
         {isLoggedIn && (
-          <Route path="/notifications" exact>
+          <Route exact path="/notifications">
             <NotificationsPage />
           </Route>
         )}
