@@ -4,12 +4,12 @@ import classes from './NotificationItem.module.css';
 
 const NotificationItem = (props) => {
   const { current } = useLocale('notifications');
-
+  const { title, text, type } = props;
   return (
-    <li className={classes.item}>
-      <div className={cn(classes.content, classes[props.category])}>
-        <h2>{props.title[current]}</h2>
-        <p>{props.text[current]}</p>
+    <li className={cn(classes.item, classes[type])}>
+      <div className={classes.content}>
+        <h2>{title[current]}</h2>
+        <p>{text[current]}</p>
       </div>
     </li>
   );

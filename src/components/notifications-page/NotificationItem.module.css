@@ -1,17 +1,11 @@
 .item {
   border-radius: 8px;
   overflow: hidden;
-  background-color: #1a1a1a;
-  color: #fff;
   margin: 1rem;
   display: flex;
   flex-direction: column;
   padding: 12px;
   gap: 1rem;
-}
-
-.item:hover {
-  background-color: #242424;
 }
 
 .info {

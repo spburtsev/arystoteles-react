@@ -90,6 +90,9 @@ const localization = new LocalizedStrings({
       createProfile: 'Create Profile',
       confirmed: 'Confirmed',
       unconfirmed: 'Unconfirmed',
+      description: 'Description',
+      address: 'Address',
+      phone: 'Phone',
     },
     organizationsPage: {
       country: 'Country',
@@ -288,6 +291,9 @@ const localization = new LocalizedStrings({
       createProfile: 'Створити профіль',
       confirmed: 'Підтверджено',
       unconfirmed: 'Не підтверджено',
+      description: 'Опис',
+      address: 'Адреса',
+      phone: 'Телефон',
     },
     organizationsPage: {
       country: 'Країна',
