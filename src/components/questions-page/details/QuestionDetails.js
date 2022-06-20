@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
 import useAuth from '../../../hooks/use-auth';
+import useLocale from '../../../hooks/use-locale';
 import { useQuery, useMutation } from 'react-query';
 import { getQuestion, deleteQuestion } from '../../../lib/api/question';
 import { useHistory } from 'react-router-dom';
@@ -8,10 +9,13 @@ import Emoji from '../../ui/Emoji';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 import DeleteQuestion from './DeleteQuestion';
 import GoBack from '../../ui/GoBack';
+import CategoryLabel from '../common/CategoryLabel';
+import AgeGroupExpecation from '../common/AgeGroupExpecation';
 import classes from './QuestionDetails.module.css';
 
 const QuestionDetails = ({ questionId }) => {
   const { token } = useAuth();
+  const { strings, current } = useLocale('questions');
   const history = useHistory();
   const { data, isLoading } = useQuery(
     ['question', questionId],
@@ -46,37 +50,66 @@ const QuestionDetails = ({ questionId }) => {
     return <LoadingSpinner />;
   }
 
+  const item = data.data;
+
   return (
     <Fragment>
       {modalIsOpen && (
         <DeleteQuestion
           onClose={modalToggleHandler}
-          activityId={data.data._id}
+          activityId={item._id}
           mutation={deleteMutation}
         />
       )}
-      <GoBack route="questions" />
+      <GoBack route="/questions" />
       <section className={classes.summary}>
-        <h1>
-          <Emoji label="UA" symbol="🇺🇦" />
-          <br />
-          {data.data.text[AppLocale.Ukrainian]}
-        </h1>
-        <h1>
-          <Emoji label="UA" symbol="🇺🇸" />
-          <br />
-          {data.data.text[AppLocale.English]}
-        </h1>
+        {current === AppLocale.English ? (
+          <h1>
+            <Emoji label="US" symbol="🇺🇸" />
+            <br />
+            {item.text[AppLocale.English]}
+          </h1>
+        ) : (
+          <h1>
+            <Emoji label="UA" symbol="🇺🇦" />
+            <br />
+            {item.text[AppLocale.Ukrainian]}
+          </h1>
+        )}
+
         <div className={classes.tags}>
-          <span>TAG</span>
+          <span>
+            <CategoryLabel category={item.category} />
+          </span>
         </div>
+      </section>
+      <section className={classes.options}>
+        <h3>{`${strings.options}:`}</h3>
+        <ul>
+          {item.options.map((option, index) => (
+            <li key={index}>{`${option.text[current]} (${option.value})`}</li>
+          ))}
+        </ul>
+      </section>
+      <section className={classes.expectations}>
+        <h3>{`${strings.expectations}:`}</h3>
+        <ul>
+          {item.expectations.map((expectation, index) => (
+            <li key={index}>
+              <AgeGroupExpecation
+                ageGroup={expectation.ageGroup}
+                value={expectation.value}
+              />
+            </li>
+          ))}
+        </ul>
       </section>
       <section className={classes.actions}>
         <button className={classes.btn} onClick={editClickHandler}>
-          Edit
+          {strings.edit}
         </button>
         <button className={classes.delete} onClick={modalToggleHandler}>
-          Delete
+          {strings.delete}
         </button>
       </section>
     </Fragment>

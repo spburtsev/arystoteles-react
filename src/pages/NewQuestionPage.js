@@ -1,4 +1,6 @@
+import NewQuestionForm from '../components/questions-page/new/NewQuestionForm';
+
 const NewQuestionPage = () => {
-  return <h1>NEW Question</h1>;
+  return <NewQuestionForm />;
 };
 export default NewQuestionPage;

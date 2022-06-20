@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import useAuth from '../../../hooks/use-auth';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
+import useLocale from '../../../hooks/use-locale';
 import {
   getActivityRequest,
   updateActivityRequest,
@@ -20,6 +21,7 @@ import classes from './ActivityDetails.module.css';
 
 const ActivityDetails = ({ activityId }) => {
   const { token } = useAuth();
+  const { strings } = useLocale('activities');
   const queryClient = useQueryClient();
   const history = useHistory();
   const { data, isLoading } = useQuery(
@@ -72,7 +74,7 @@ const ActivityDetails = ({ activityId }) => {
           mutation={deleteMutation}
         />
       )}
-      <GoBack route="activities" />
+      <GoBack route="/activities" />
       <section className={classes.summary}>
         <h1>
           <Emoji label="UA" symbol="🇺🇦" />
@@ -101,13 +103,13 @@ const ActivityDetails = ({ activityId }) => {
       </section>
       <section className={classes.actions}>
         <button className={classes.btn} onClick={modalHandlerCreator('edit')}>
-          Edit
+          {strings.edit}
         </button>
         <button
           className={classes.delete}
           onClick={modalHandlerCreator('delete')}
         >
-          Delete
+          {strings.delete}
         </button>
       </section>
     </Fragment>

@@ -43,6 +43,10 @@ body {
   margin: 0;
 }
 
+.g__display-none {
+  display: none;
+}
+
 h1,
 h2,
 h3,

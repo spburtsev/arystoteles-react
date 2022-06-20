@@ -24,6 +24,7 @@ const QuestionsList = () => {
     event.preventDefault();
     push('/questions/new');
   };
+  console.log(items);
 
   return (
     <Fragment>

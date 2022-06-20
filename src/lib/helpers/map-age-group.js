@@ -16,6 +16,69 @@ export const matchMonthRange = (lowerBound, upperBound) => {
   return range;
 };
 
+export const matchAgeGroupToRange = (ageGroup) => {
+  let lowerBound = 0;
+  let upperBound = 0;
+  switch (ageGroup) {
+    case AgeGroup.Group1:
+      lowerBound = 0;
+      upperBound = 1;
+      break;
+    case AgeGroup.Group2:
+      lowerBound = 1;
+      upperBound = 4;
+      break;
+    case AgeGroup.Group3:
+      lowerBound = 4;
+      upperBound = 8;
+      break;
+    case AgeGroup.Group4:
+      lowerBound = 8;
+      upperBound = 12;
+      break;
+    case AgeGroup.Group5:
+      lowerBound = 12;
+      upperBound = 16;
+      break;
+    case AgeGroup.Group6:
+      lowerBound = 16;
+      upperBound = 20;
+      break;
+    case AgeGroup.Group7:
+      lowerBound = 20;
+      upperBound = 24;
+      break;
+    case AgeGroup.Group8:
+      lowerBound = 24;
+      upperBound = 30;
+      break;
+    case AgeGroup.Group9:
+      lowerBound = 30;
+      upperBound = 36;
+      break;
+    case AgeGroup.Group10:
+      lowerBound = 36;
+      upperBound = 48;
+      break;
+    case AgeGroup.Group11:
+      lowerBound = 48;
+      upperBound = 60;
+      break;
+    case AgeGroup.Group12:
+      lowerBound = 60;
+      upperBound = 66;
+      break;
+    default:
+      lowerBound = 0;
+      upperBound = 0;
+      break;
+  }
+  return {
+    lowerBound,
+    upperBound,
+  };
+};
+
 export const matchGroupsToRange = (ageGroups) => {
   let lowerBound = 0;
   let upperBound = 0;
