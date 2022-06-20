@@ -1,6 +1,7 @@
 import LocalizedStrings from 'localized-strings';
 import AppLocale from '../lib/enums/AppLocale';
 import QuestionCategory from '../lib/enums/QuestionCategory';
+import AgeGroup from '../lib/enums/AgeGroup';
 
 const localization = new LocalizedStrings({
   [AppLocale.English]: {
@@ -79,6 +80,16 @@ const localization = new LocalizedStrings({
       edit: 'Edit',
       submit: 'Submit',
       cancel: 'Cancel',
+      yourMedicProfile: 'Your Medic Profile',
+      yourOrganization: 'Your Organization',
+      title: 'Title',
+      changeOrganization: 'Change Organization',
+      medicalTitle: 'Medical Title',
+      yourOrganizationProfile: 'Your Organization Profile',
+      noData: 'No data',
+      createProfile: 'Create Profile',
+      confirmed: 'Confirmed',
+      unconfirmed: 'Unconfirmed',
     },
     organizationsPage: {
       country: 'Country',
@@ -171,6 +182,19 @@ const localization = new LocalizedStrings({
       textEn: 'Text in English',
       textUa: 'Text in Ukrainian',
       value: 'Value',
+      ageGroup: 'Age group',
+      [AgeGroup.Group1]: 'Below 1 month',
+      [AgeGroup.Group2]: '1-4 months',
+      [AgeGroup.Group3]: '4-8 months',
+      [AgeGroup.Group4]: '8-12 months',
+      [AgeGroup.Group5]: '12-16 months',
+      [AgeGroup.Group6]: '16-20 months',
+      [AgeGroup.Group7]: '20-24 months',
+      [AgeGroup.Group8]: '24-30 months',
+      [AgeGroup.Group9]: '30-36 months',
+      [AgeGroup.Group10]: '36-48 months',
+      [AgeGroup.Group11]: '48-60 months',
+      [AgeGroup.Group12]: '60-66 months',
     },
     notifications: {
       status: 'Status',
@@ -254,6 +278,16 @@ const localization = new LocalizedStrings({
       edit: 'Редагувати',
       submit: 'Підтвердити',
       cancel: 'Відміна',
+      yourMedicProfile: 'Ваш профіль лікаря',
+      medicalTitle: 'Ваше лікарське звання',
+      yourOrganization: 'Ваша організація',
+      title: 'Назва',
+      changeOrganization: 'Змінити організацію',
+      yourOrganizationProfile: 'Ваш профіль організації',
+      noData: 'Немає даних',
+      createProfile: 'Створити профіль',
+      confirmed: 'Підтверджено',
+      unconfirmed: 'Не підтверджено',
     },
     organizationsPage: {
       country: 'Країна',
@@ -346,6 +380,19 @@ const localization = new LocalizedStrings({
       textEn: 'Текст англійською',
       textUa: 'Текст українською',
       value: 'Значення',
+      ageGroup: 'Вікова група',
+      [AgeGroup.Group1]: 'До 1 місяця',
+      [AgeGroup.Group2]: '1-4 місяці',
+      [AgeGroup.Group3]: '4-8 місяці',
+      [AgeGroup.Group4]: '8-12 місяці',
+      [AgeGroup.Group5]: '12-16 місяці',
+      [AgeGroup.Group6]: '16-20 місяці',
+      [AgeGroup.Group7]: '20-24 місяці',
+      [AgeGroup.Group8]: '24-30 місяці',
+      [AgeGroup.Group9]: '30-36 місяці',
+      [AgeGroup.Group10]: '36-48 місяці',
+      [AgeGroup.Group11]: '48-60 місяці',
+      [AgeGroup.Group12]: '60-66 місяці',
     },
     notifications: {
       status: 'Статус',

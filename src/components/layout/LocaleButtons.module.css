@@ -4,26 +4,28 @@
   height: 10rem;
 }
 
+.locales :last-of-type button {
+  margin-left: 1rem;
+}
+
+.active {
+  background-color: #c291e2;
+}
+
 .locales button {
   font: inherit;
-  background-color: rgb(216, 188, 253);
+  background-color: transparent;
   border: 1px solid white;
-  color: #38015c;
+  color: white;
   font-weight: bold;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-}
-
-.locales :last-of-type button {
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .locales button:hover {
   background-color: #c291e2;
-}
-
-.active {
-  background-color: #c291e2;
+  color: #38015c;
 }

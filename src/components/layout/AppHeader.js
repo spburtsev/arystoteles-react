@@ -14,7 +14,7 @@ const AppHeader = () => {
 
   const logoutHandler = () => {
     authCtx.logout();
-    history.replace('/auth');
+    history.replace('/auth/login');
   };
 
   return (

@@ -5,36 +5,34 @@ import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import useLocale from '../../../hooks/use-locale';
 import cn from 'classnames';
 import classes from './OptionsControls.module.css';
-import AppLocale from '../../../lib/enums/AppLocale';
+import AgeGroup from '../../../lib/enums/AgeGroup';
 
-const OptionsControls = ({ options }) => {
+const OptionsControls = ({ expectations }) => {
   const { strings } = useLocale('questions');
   const [insertionIsOpen, setInsertionIsOpen] = useState(false);
-  const textEn = useRef(null);
-  const textUa = useRef(null);
+  const ageGroup = useRef(null);
   const value = useRef(null);
-  const { items, add, remove, reset } = options;
+  const { items, add, remove, reset } = expectations;
 
   const insertionToggleHandler = () => {
     setInsertionIsOpen((prev) => !prev);
   };
 
   const submitHandler = () => {
-    const textEnValue = textEn.current?.value;
-    const textUaValue = textUa.current?.value;
+    const ageGroupValue = ageGroup.current?.value;
     const valueValue = value.current?.value;
 
     add({
-      text: {
-        [AppLocale.English]: textEnValue,
-        [AppLocale.Ukrainian]: textUaValue,
-      },
+      ageGroup: ageGroupValue,
       value: valueValue,
     });
-    textEn.current.value = '';
-    textUa.current.value = '';
+    ageGroup.current.value = '';
     value.current.value = '';
   };
+
+  const ageGroupOptions = Object.values(AgeGroup).filter(
+    (x) => x !== AgeGroup.None,
+  );
 
   return (
     <Fragment>
@@ -42,9 +40,9 @@ const OptionsControls = ({ options }) => {
         <ul className={classes.tags}>
           {items.map((x) => (
             <li key={x.value} className={classes.tag}>
-              <div
-                className={classes['tag-label']}
-              >{`${x.text.en}, ${x.text.uk} (${x.value})`}</div>
+              <div className={classes['tag-label']}>{`${
+                strings[x.ageGroup]
+              } - ${x.value}`}</div>
               <div
                 className={classes['remove-tag']}
                 onClick={remove.bind(null, x)}
@@ -74,20 +72,18 @@ const OptionsControls = ({ options }) => {
         )}
       >
         <div className={classes.tags}>
-          <label htmlFor="textUa">UA</label>
-          <input
-            type="text"
-            id="textUa"
+          <label htmlFor="ageGroup">{strings.ageGroup}</label>
+          <select
+            id="ageGroup"
             className={classes['tag-insert']}
-            ref={textUa}
-          />
-          <label htmlFor="textEn">EN</label>
-          <input
-            type="text"
-            id="textEn"
-            className={classes['tag-insert']}
-            ref={textEn}
-          />
+            ref={ageGroup}
+          >
+            {ageGroupOptions.map((x) => (
+              <option key={x} value={x}>
+                {strings[x]}
+              </option>
+            ))}
+          </select>
           <label htmlFor="value">{strings.value}</label>
           <input
             id="textEn"
