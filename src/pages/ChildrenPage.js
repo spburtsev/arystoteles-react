@@ -1,4 +1,6 @@
+import ChildrenList from '../components/children-page/all/ChildrenList';
+
 const ChildrenPage = () => {
-  return <h1>CHILDREN PAGE</h1>;
+  return <ChildrenList />;
 };
 export default ChildrenPage;
