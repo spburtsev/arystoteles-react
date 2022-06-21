@@ -61,6 +61,17 @@ const MainNavigation = () => {
               >
                 {strings.profile}
               </NavLink>
+              {role === UserRole.OrganizationAdministrator && (
+                <Fragment>
+                  <NavLink
+                    to="/medics"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.medics}
+                  </NavLink>
+                </Fragment>
+              )}
               {[UserRole.Admin, UserRole.Seed].includes(role) && (
                 <Fragment>
                   <NavLink

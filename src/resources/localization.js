@@ -22,6 +22,7 @@ const localization = new LocalizedStrings({
       activities: 'Activities',
       tips: 'Tips',
       questions: 'Questions',
+      medics: 'Medics',
     },
     homePage: {
       welcome: 'Welcome to Arystoteles',
@@ -204,6 +205,16 @@ const localization = new LocalizedStrings({
       markAsRead: 'Mark as read',
       total: 'Total',
     },
+    medics: {
+      firstName: 'First name',
+      lastName: 'Last name',
+      email: 'Email',
+      status: 'Status',
+      confirmed: 'Confirmed',
+      unconfirmed: 'Unconfirmed',
+      title: 'Title',
+      total: 'Total',
+    },
   },
   [AppLocale.Ukrainian]: {
     common: {
@@ -223,6 +234,7 @@ const localization = new LocalizedStrings({
       activities: 'Активності',
       tips: 'Поради',
       questions: 'Питання',
+      medics: 'Лікарі',
     },
     homePage: {
       welcome: 'Ласкаво просимо на Arystoteles',
@@ -403,6 +415,16 @@ const localization = new LocalizedStrings({
     notifications: {
       status: 'Статус',
       markAsRead: 'Помітити як прочитане',
+      total: 'Всього',
+    },
+    medics: {
+      firstName: "Ім'я",
+      lastName: 'Прізвище',
+      email: 'Пошта',
+      status: 'Статус',
+      confirmed: 'Підтверджено',
+      unconfirmed: 'Непідтверджено',
+      title: 'Звання',
       total: 'Всього',
     },
   },

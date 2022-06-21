@@ -17,6 +17,7 @@ import TipsPage from './pages/TipsPage';
 import QuestionsPage from './pages/QuestionsPage';
 import QuestionDetailsPage from './pages/QuestionDetailsPage';
 import NewQuestionPage from './pages/NewQuestionPage';
+import MedicsPage from './pages/MedicsPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
@@ -54,6 +55,13 @@ const App = () => {
           <Route exact path="/notifications">
             <NotificationsPage />
           </Route>
+        )}
+        {role === UserRole.OrganizationAdministrator && (
+          <Switch>
+            <Route exact path="/medics">
+              <MedicsPage />
+            </Route>
+          </Switch>
         )}
         {[UserRole.Seed, UserRole.Admin].includes(role) && (
           <Switch>
