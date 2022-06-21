@@ -56,7 +56,7 @@ const MedicInfo = () => {
           <div className={classes.control}>
             <label>{`${strings.title}:`}</label>
             <p>{organizationQuery.data.data.name}</p>
-            <ConfirmationStatus confirmed={data.profile.confirmed} />
+            <ConfirmationStatus confirmed={data.profile.isConfirmed} />
           </div>
         </section>
       ) : null}

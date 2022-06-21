@@ -23,6 +23,7 @@ const localization = new LocalizedStrings({
       tips: 'Tips',
       questions: 'Questions',
       medics: 'Medics',
+      children: 'Children',
     },
     homePage: {
       welcome: 'Welcome to Arystoteles',
@@ -238,6 +239,7 @@ const localization = new LocalizedStrings({
       tips: 'Поради',
       questions: 'Питання',
       medics: 'Лікарі',
+      children: 'Діти',
     },
     homePage: {
       welcome: 'Ласкаво просимо на Arystoteles',

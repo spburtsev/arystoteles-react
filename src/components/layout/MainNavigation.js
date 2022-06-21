@@ -61,6 +61,17 @@ const MainNavigation = () => {
               >
                 {strings.profile}
               </NavLink>
+              {role === UserRole.Medic && (
+                <Fragment>
+                  <NavLink
+                    to="/children"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.children}
+                  </NavLink>
+                </Fragment>
+              )}
               {role === UserRole.OrganizationAdministrator && (
                 <Fragment>
                   <NavLink

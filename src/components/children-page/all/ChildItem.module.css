@@ -1,0 +1,84 @@
+.item {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 1rem;
+}
+
+.item:hover {
+  background-color: #242424;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: rgb(216, 188, 253);
+}
+
+.content section {
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.content > section > span,
+.labels li button,
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.1rem 0.3rem;
+  border: solid 1px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.date {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.actions button {
+  font: inherit;
+  background-color: rgb(216, 188, 253);
+  border: 1px solid #38015c;
+  color: #38015c;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.actions button:hover {
+  background-color: #c291e2;
+}
+
+.icon {
+  margin-left: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}

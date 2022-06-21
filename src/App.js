@@ -19,6 +19,8 @@ import QuestionDetailsPage from './pages/QuestionDetailsPage';
 import NewQuestionPage from './pages/NewQuestionPage';
 import MedicsPage from './pages/MedicsPage';
 import MedicDetailsPage from './pages/MedicDetailsPage';
+import ChildDetailsPage from './pages/ChildDetailsPage';
+import ChildrenPage from './pages/ChildrenPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
@@ -64,6 +66,16 @@ const App = () => {
             </Route>
             <Route path="/medics/:medicId">
               <MedicDetailsPage />
+            </Route>
+          </Switch>
+        )}
+        {role === UserRole.Medic && (
+          <Switch>
+            <Route exact path="/children">
+              <ChildrenPage />
+            </Route>
+            <Route path="/children/:childId">
+              <ChildDetailsPage />
             </Route>
           </Switch>
         )}
