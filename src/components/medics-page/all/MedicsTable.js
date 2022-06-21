@@ -54,7 +54,7 @@ const MedicsTable = () => {
                 <td>{medic.user.lastName}</td>
                 <td>{medic.title}</td>
                 <td>
-                  {medic.confirmed ? strings.confirmed : strings.unconfirmed}
+                  {medic.isConfirmed ? strings.confirmed : strings.unconfirmed}
                 </td>
               </tr>
             ))

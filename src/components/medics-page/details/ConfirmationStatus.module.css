@@ -1,0 +1,23 @@
+.status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.1rem 0.3rem;
+  border: solid 1px;
+  text-align: center;
+  white-space: nowrap;
+  max-width: 12rem;
+  width: fit-content;
+}
+
+.unconfirmed {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: red;
+  border-color: red;
+}
+
+.confirmed {
+  background-color: rgba(0, 255, 0, 0.2);
+  color: green;
+  border-color: green;
+}

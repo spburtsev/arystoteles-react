@@ -29,3 +29,30 @@ export const getOrganizationMedics = (token) => async () => {
   }
   return data;
 };
+
+export const getMedic = (token, medicId) => async () => {
+  const response = await fetch(`${baseRoute}${medicId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+export const confirmMedic = async ({ token, medicId }) => {
+  const response = await fetch(`${baseRoute}confirm/${medicId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: 'PATCH',
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+  return data;
+};

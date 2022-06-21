@@ -27,7 +27,7 @@ const NotificationsList = () => {
   return (
     <Fragment>
       <div className={classes.actions}>
-        <h1>{`${strings.total}: ${totalItems}`}</h1>
+        <h3>{`${strings.total}: ${totalItems}`}</h3>
       </div>
       <ul className={classes.list}>
         {isLoading ? (

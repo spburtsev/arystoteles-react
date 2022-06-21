@@ -214,6 +214,9 @@ const localization = new LocalizedStrings({
       unconfirmed: 'Unconfirmed',
       title: 'Title',
       total: 'Total',
+      country: 'Country',
+      fullName: 'Full name',
+      confirm: 'Confirm',
     },
   },
   [AppLocale.Ukrainian]: {
@@ -426,6 +429,9 @@ const localization = new LocalizedStrings({
       unconfirmed: 'Непідтверджено',
       title: 'Звання',
       total: 'Всього',
+      country: 'Країна',
+      fullName: "Ім'я",
+      confirm: 'Підтвердити',
     },
   },
 });
