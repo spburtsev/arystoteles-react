@@ -102,6 +102,7 @@ const localization = new LocalizedStrings({
       name: 'Name',
       find: 'Find',
       explore: 'Explore',
+      total: 'Total',
     },
     organizationDetailsPage: {
       notFound: 'Organization not found',
@@ -127,6 +128,7 @@ const localization = new LocalizedStrings({
       submit: 'Submit',
       cancel: 'Cancel',
       fileName: 'File name',
+      toggleSort: 'Sort',
     },
     activities: {
       explore: 'Details',
@@ -347,6 +349,7 @@ const localization = new LocalizedStrings({
       name: 'Назва',
       find: 'Знайти',
       explore: 'Більше',
+      total: 'Всього',
     },
     organizationDetailsPage: {
       notFound: 'Організація не знайдена',
@@ -372,6 +375,7 @@ const localization = new LocalizedStrings({
       submit: 'Підтвердити',
       cancel: 'Відміна',
       fileName: 'Назва файлу',
+      toggleSort: 'Сортувати',
     },
     activities: {
       explore: 'Детальніше',

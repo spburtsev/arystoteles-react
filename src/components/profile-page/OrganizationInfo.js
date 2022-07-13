@@ -19,7 +19,7 @@ const OrganizationInfo = () => {
   const { profile } = data ? data : {};
   return (
     <section className={classes.profile}>
-      <h1>{strings.yourOrganizationProfile}</h1>
+      <h3>{strings.yourOrganizationProfile}</h3>
       {isLoading ? (
         <LoadingSpinner />
       ) : (

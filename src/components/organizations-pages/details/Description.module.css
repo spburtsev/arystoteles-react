@@ -1,7 +1,8 @@
 .description {
   width: 100%;
-  height: 30vh;
-  background-image: linear-gradient(to bottom left, #008b79, #1180a1);
+  height: 20vh;
+  background-image: linear-gradient(to bottom left, #960650, #38015c);
+  border-radius: 16px;
 }
 
 .description h1 {

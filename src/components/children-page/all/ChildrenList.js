@@ -21,7 +21,7 @@ const ChildrenList = () => {
   return (
     <Fragment>
       <div className={classes.actions}>
-        <h3>{`${strings.total}: ${totalItems}`}</h3>
+        <h4>{`${strings.total}: ${totalItems}`}</h4>
       </div>
       <ul className={classes.list}>
         {isLoading ? (

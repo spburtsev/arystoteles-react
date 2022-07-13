@@ -25,9 +25,6 @@ const MedicInfo = () => {
       useErrorBoundary: true,
     },
   );
-  if (organizationQuery.data) {
-    console.log(organizationQuery.data);
-  }
 
   return (
     <Fragment>

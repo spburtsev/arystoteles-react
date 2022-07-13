@@ -26,7 +26,7 @@ const MedicsTable = () => {
 
   return (
     <Fragment>
-      <h3>{`${strings.total}: ${total ? total : '...'}`}</h3>
+      <h4>{`${strings.total}: ${total ? total : '...'}`}</h4>
       <table className={classes.table}>
         <thead>
           <tr>

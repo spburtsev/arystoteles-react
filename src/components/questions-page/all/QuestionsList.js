@@ -29,7 +29,7 @@ const QuestionsList = () => {
   return (
     <Fragment>
       <div className={classes.actions}>
-        <h1>{`${strings.total}: ${totalItems}`}</h1>
+        <h4>{`${strings.total}: ${totalItems}`}</h4>
         <button onClick={newClickHandler}>{strings.createNew}</button>
       </div>
       <ul className={classes.list}>

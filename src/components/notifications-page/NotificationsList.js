@@ -22,12 +22,11 @@ const NotificationsList = () => {
   const items = isLoading ? null : data.data.notifications;
   const totalItems = isLoading ? '...' : data.data.total;
   console.log(data);
-  console.log(items);
 
   return (
     <Fragment>
       <div className={classes.actions}>
-        <h3>{`${strings.total}: ${totalItems}`}</h3>
+        <h4>{`${strings.total}: ${totalItems}`}</h4>
       </div>
       <ul className={classes.list}>
         {isLoading ? (

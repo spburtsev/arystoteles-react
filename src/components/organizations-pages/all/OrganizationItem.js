@@ -1,30 +1,23 @@
-import { useContext } from 'react';
-import LocaleContext from '../../../context/locale-context';
+import useLocale from '../../../hooks/use-locale';
 import { Link } from 'react-router-dom';
 import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import AddressIcon from '../../icons/AddressIcon';
 import MailIcon from '../../icons/MailIcon';
 import classes from './OrganizationItem.module.css';
 
-const OrganizationItem = (props) => {
-  const { name, image, location, address, email, id } = props;
-  const { localizationObj } = useContext(LocaleContext);
-  const locale = localizationObj.organizationsPage;
-
-  const formattedLocation =
-    location.replace(', ', '\n') + '\n' + address.replace(', ', '\n');
-
+const OrganizationItem = ({ name, description, address, email, id }) => {
+  const { strings } = useLocale('organizationsPage');
   const exploreLink = `/organizations/${id}`;
 
   return (
     <li className={classes.item}>
-      <img src={image} alt={name} />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{name}</h2>
+          <p>{description}</p>
           <div className={classes.address}>
             <AddressIcon />
-            <address>{formattedLocation}</address>
+            <address>{address}</address>
           </div>
           <div className={classes.address}>
             <MailIcon />
@@ -33,7 +26,7 @@ const OrganizationItem = (props) => {
         </div>
         <div className={classes.actions}>
           <Link className="btn" to={exploreLink}>
-            <span>{locale.explore}</span>
+            <span>{strings.explore}</span>
             <span className={classes.icon}>
               <ArrowRightIcon />
             </span>

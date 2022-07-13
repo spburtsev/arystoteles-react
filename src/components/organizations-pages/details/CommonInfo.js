@@ -1,21 +1,20 @@
 import AddressIcon from '../../icons/AddressIcon';
 import OrganizationIcon from '../../icons/OrganizationIcon';
 import InfoItem from './InfoItem';
+import MailIcon from '../../icons/MailIcon';
 import classes from './CommonInfo.module.css';
 
-const CommonInfo = (props) => {
-  const { country, city, address, image, imageAlt } = props;
-  const locationText = `${city}, ${country}`;
+const CommonInfo = ({ phone, address, email }) => {
   const addressText = address.replace(', ', '\n');
 
   return (
     <section className={classes.info}>
-      <div className={classes.image}>
-        <img src={image} alt={imageAlt} />
-      </div>
       <ul className={classes.list}>
         <InfoItem icon={OrganizationIcon}>
-          <address>{locationText}</address>
+          <address>{phone}</address>
+        </InfoItem>
+        <InfoItem icon={MailIcon}>
+          <address>{email}</address>
         </InfoItem>
         <InfoItem icon={AddressIcon}>
           <address>{addressText}</address>

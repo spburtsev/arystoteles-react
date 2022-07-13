@@ -47,7 +47,7 @@ const ActivitiesList = () => {
         <NewActivity onClose={modalHandler} mutation={newActivityMutation} />
       )}
       <div className={classes.actions}>
-        <h1>{`${strings.total}: ${data.results}`}</h1>
+        <h4>{`${strings.total}: ${data.results}`}</h4>
         <button onClick={modalHandler}>{strings.createNew}</button>
       </div>
       <ul className={classes.list}>

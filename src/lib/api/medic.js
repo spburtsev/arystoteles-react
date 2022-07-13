@@ -7,7 +7,6 @@ export const medicGetSelf = (token) => async () => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    method: 'GET',
   });
   const data = await response.json();
   if (!response.ok) {
@@ -15,6 +14,23 @@ export const medicGetSelf = (token) => async () => {
   }
   return data;
 };
+
+export const medicUpdateSelf =
+  ({ token, body }) =>
+  async () => {
+    const response = await fetch(meRoute, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+      method: 'PATCH',
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+    return data;
+  };
 
 export const getOrganizationMedics = (token) => async () => {
   const response = await fetch(`${baseUrl}organizations/me/medics`, {

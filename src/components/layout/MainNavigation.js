@@ -70,6 +70,13 @@ const MainNavigation = () => {
                   >
                     {strings.children}
                   </NavLink>
+                  <NavLink
+                    to="/organizations"
+                    className={classes['menu-item']}
+                    activeClassName={classes.active}
+                  >
+                    {strings.organizations}
+                  </NavLink>
                 </Fragment>
               )}
               {role === UserRole.OrganizationAdministrator && (

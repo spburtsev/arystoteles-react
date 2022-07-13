@@ -37,7 +37,7 @@ const App = () => {
         <Route exact path="/organizations">
           <Redirect to="/organizations/all" />
         </Route>
-        <Route path="/organizations/:id">
+        <Route path="/organizations/:organizationId">
           <OrganizationDetailsPage />
         </Route>
         {!isLoggedIn && (

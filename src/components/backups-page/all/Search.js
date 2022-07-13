@@ -9,9 +9,7 @@ const Search = ({ onSearch }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const name = nameInputRef.current.value;
-
-    onSearch(`name[regex]=${name}`);
+    onSearch(nameInputRef.current.value);
   };
 
   return (

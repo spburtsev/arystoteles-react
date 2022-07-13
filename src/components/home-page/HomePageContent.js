@@ -10,11 +10,11 @@ const HomePageContent = () => {
   return (
     <section className={classes.home}>
       <h1>{locale.welcome}</h1>
-      <InfoSection
+      {/* <InfoSection
         title={locale.whatIsKuk.title}
         text={locale.whatIsKuk.text}
         bgVariant="dark"
-      />
+      /> */}
     </section>
   );
 };

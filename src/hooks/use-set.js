@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import _ from 'lodash';
 
-const useSet = (initialValues, compare) => {
+const useSet = (initialValues, compare = _.isEqual) => {
   const [items, setItems] = useState(initialValues);
 
   const add = (item) => {
     const itemAlreadyThere = items.includes((x) => compare(x, item));
-    console.log(itemAlreadyThere);
     if (itemAlreadyThere) {
       return;
     }

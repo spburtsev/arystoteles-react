@@ -1,23 +1,27 @@
+import { Fragment } from 'react';
+import useLocale from '../../../hooks/use-locale';
 import OrganizationItem from './OrganizationItem';
 import classes from './OrganizationList.module.css';
 
-function OrganizationList(props) {
-  const { items } = props;
+const OrganizationList = ({ items }) => {
+  const { strings } = useLocale('organizationsPage');
 
   return (
-    <ul className={classes.list}>
-      {items.map((org) => (
-        <OrganizationItem
-          key={org.id}
-          id={org.id}
-          name={org.name}
-          location={org.location}
-          address={org.address}
-          image={org.image}
-          email={org.email}
-        />
-      ))}
-    </ul>
+    <Fragment>
+      <h3 className={classes.total}>{`${strings.total}: ${items.length}`}</h3>
+      <ul className={classes.list}>
+        {items.map((org) => (
+          <OrganizationItem
+            key={org._id}
+            id={org._id}
+            name={org.name}
+            description={org.description}
+            address={org.address}
+            email={org.email}
+          />
+        ))}
+      </ul>
+    </Fragment>
   );
-}
+};
 export default OrganizationList;

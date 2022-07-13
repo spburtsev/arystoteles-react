@@ -13,16 +13,19 @@ import NewBackup from './NewBackup';
 import BackupDetailsModal from './BackupDetailsModal';
 import RestoreModal from './RestoreModal';
 import classes from './BackupsList.module.css';
+import Search from './Search';
 
 const BackupsList = () => {
   const { token } = useAuth();
   const { strings } = useLocale('backups');
+  const [sortAsc, setSortAsc] = useState(false);
+  const [search, setSearch] = useState(false);
   const [modal, setModal] = useState(null);
   const [selected, setSelected] = useState(null);
 
   const { data, isLoading, refetch } = useQuery(
-    ['backups'],
-    getBackupsRequest(token),
+    ['backups', sortAsc, search],
+    getBackupsRequest(token, sortAsc, search),
   );
   const newBackupMutation = useMutation(createBackupRequest, {
     onSuccess: () => {
@@ -56,9 +59,17 @@ const BackupsList = () => {
     setModal('restore');
   };
 
-  return isLoading ? (
-    <LoadingSpinner />
-  ) : (
+  const sortToggleHandler = (event) => {
+    event.preventDefault();
+    setSortAsc((prev) => !prev);
+  };
+
+  const searchHandler = (val) => {
+    setSearch(val);
+  };
+
+  console.log(data);
+  return (
     <Fragment>
       {modal === 'new' && (
         <NewBackup
@@ -79,24 +90,29 @@ const BackupsList = () => {
           mutation={restoreMutation}
         />
       )}
+      <Search onSearch={searchHandler} />
       <div className={classes.actions}>
-        <h1>{`${strings.total}: ${data.total}`}</h1>
+        <h4>{`${strings.total}: ${isLoading ? '...' : data.total}`}</h4>
+        <button onClick={sortToggleHandler}>{strings.toggleSort}</button>
         <button onClick={modalHandlerCreator('new')}>
           {strings.createNew}
         </button>
       </div>
-
-      <ul className={classes.list}>
-        {data.backups.map((item) => (
-          <BackupItem
-            key={item._id}
-            id={item._id}
-            {...item}
-            onDetailsClick={detailsHandlerCreator(item)}
-            onRestoreClick={restoreHandlerCreator(item)}
-          />
-        ))}
-      </ul>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <ul className={classes.list}>
+          {data.backups.map((item) => (
+            <BackupItem
+              key={item._id}
+              id={item._id}
+              {...item}
+              onDetailsClick={detailsHandlerCreator(item)}
+              onRestoreClick={restoreHandlerCreator(item)}
+            />
+          ))}
+        </ul>
+      )}
     </Fragment>
   );
 };
