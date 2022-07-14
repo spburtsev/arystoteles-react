@@ -108,6 +108,8 @@ const localization = new LocalizedStrings({
     organizationDetailsPage: {
       notFound: 'Organization not found',
       noInfo: 'No information provided',
+      assign: 'Subscribe',
+      unassign: 'Unsubscribe',
     },
     apiErrors: {
       loginError: 'Login failed!',
@@ -230,7 +232,7 @@ const localization = new LocalizedStrings({
       ageUpperBoundMounths: 'Age upper bound (months)',
       areYouSureToDelete: 'Are you sure you want to delete this activity?',
       total: 'Total',
-      createNew: 'Create new activity',
+      createNew: 'Add child',
       goBack: 'Go back',
     },
     notifications: {
@@ -361,6 +363,8 @@ const localization = new LocalizedStrings({
     organizationDetailsPage: {
       notFound: 'Організація не знайдена',
       noInfo: 'Немає інформації',
+      assign: 'Підписатися',
+      unassign: 'Відписатися',
     },
     apiErrors: {
       loginError: 'Не вдалося увійти!',
@@ -506,7 +510,7 @@ const localization = new LocalizedStrings({
       ageUpperBoundMounths: 'Максимальний вік, міс',
       areYouSureToDelete: 'Ви впевнені, що хочете видалити?',
       total: 'Всього',
-      createNew: 'Створити нову активність',
+      createNew: 'Додати дитину',
       goBack: 'Назад',
       delete: 'Видалити',
     },

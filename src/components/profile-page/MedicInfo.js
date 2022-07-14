@@ -16,9 +16,10 @@ const MedicInfo = () => {
     onError: (err) => alert(err.message),
   });
   const orgId = data?.profile?.organization;
+  console.log(orgId);
   const organizationQuery = useQuery(
     ['organization'],
-    getOrganization(orgId, token),
+    getOrganization(token, orgId),
     {
       enabled: !!orgId,
       onError: (err) => alert(err.message),

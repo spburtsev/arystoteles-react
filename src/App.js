@@ -22,6 +22,7 @@ import MedicDetailsPage from './pages/MedicDetailsPage';
 import ChildDetailsPage from './pages/ChildDetailsPage';
 import ChildrenPage from './pages/ChildrenPage';
 import UsersPage from './pages/UsersPage';
+import CreateChildPage from './pages/CreateChildPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
@@ -61,16 +62,22 @@ const App = () => {
           </Route>
         )}
         {role === UserRole.OrganizationAdministrator && (
-          <Switch>
-            <Route exact path="/medics">
-              <MedicsPage />
-            </Route>
-            <Route path="/medics/:medicId">
-              <MedicDetailsPage />
-            </Route>
-          </Switch>
+          <Route exact path="/medics">
+            <MedicsPage />
+          </Route>
         )}
-        {role === UserRole.Medic && (
+        {(role === UserRole.OrganizationAdministrator ||
+          role === UserRole.Caregiver) && (
+          <Route path="/medics/:medicId">
+            <MedicDetailsPage />
+          </Route>
+        )}
+        {role === UserRole.Caregiver && (
+          <Route exact path="/children/new">
+            <CreateChildPage />
+          </Route>
+        )}
+        {(role === UserRole.Caregiver || role === UserRole.Medic) && (
           <Switch>
             <Route exact path="/children">
               <ChildrenPage />
@@ -80,6 +87,7 @@ const App = () => {
             </Route>
           </Switch>
         )}
+
         {[UserRole.Seed, UserRole.Admin].includes(role) && (
           <Switch>
             <Route exact path="/backups">

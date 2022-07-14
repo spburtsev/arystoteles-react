@@ -7,10 +7,12 @@ import GoBack from '../../ui/GoBack';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 import MedicUserInfo from './MedicUserInfo';
 import ConfirmationStatus from './ConfirmationStatus';
+import UserRole from '../../../lib/enums/UserRole';
 import classes from './MedicDetails.module.css';
+import AssignedChildren from './AssignedChildren';
 
 const MedicDetails = ({ medicId }) => {
-  const { token } = useAuth();
+  const { token, role } = useAuth();
   const { strings } = useLocale('medics');
   const { data, isLoading, refetch } = useQuery(
     ['medic', medicId],
@@ -41,17 +43,21 @@ const MedicDetails = ({ medicId }) => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <section className={classes.info}>
-          <MedicUserInfo user={medic.user} />
-          <h4>{strings.title}</h4>
-          <p>{medic.title}</p>
-          <ConfirmationStatus confirmed={medic.isConfirmed} />
-          {!medic.isConfirmed && (
-            <button className={classes.btn} onClick={confirmHandler}>
-              {strings.confirm}
-            </button>
-          )}
-        </section>
+        <Fragment>
+          <section className={classes.info}>
+            <MedicUserInfo user={medic.user} />
+            <h4>{strings.title}</h4>
+            <p>{medic.title}</p>
+            <ConfirmationStatus confirmed={medic.isConfirmed} />
+            {!medic.isConfirmed && (
+              <button className={classes.btn} onClick={confirmHandler}>
+                {strings.confirm}
+              </button>
+            )}
+          </section>
+          <hr />
+          {role === UserRole.Caregiver && <AssignedChildren />}
+        </Fragment>
       )}
     </Fragment>
   );

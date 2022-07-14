@@ -61,7 +61,7 @@ const MainNavigation = () => {
               >
                 {strings.profile}
               </NavLink>
-              {role === UserRole.Medic && (
+              {(role === UserRole.Caregiver || role === UserRole.Medic) && (
                 <Fragment>
                   <NavLink
                     to="/children"

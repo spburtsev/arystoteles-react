@@ -71,11 +71,9 @@ const OrganizationDetails = ({ organizationId }) => {
       </AboutSection>
       {role === UserRole.Medic && medicQuery.isLoading ? (
         <p>...</p>
-      ) : role === UserRole.Medic && medicQuery.isLoading ? (
+      ) : medicQuery.data.organization === organizationId ? (
         <button className="btn" onClick={assignHandler}>
-          {medicQuery.data.data.organization === organizationId
-            ? 'assign'
-            : 'unassign'}
+          {strings.assign}
         </button>
       ) : null}
     </Fragment>
