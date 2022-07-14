@@ -42,6 +42,10 @@ const useInput = (initialValue = '', validateFunction = valueIsNotEmpty) => {
     dispatch({ type: 'RESET' });
   };
 
+  const force = (value) => {
+    dispatch({ type: 'INPUT', value });
+  };
+
   return {
     value: inputState.value,
     isValid: valueIsValid,
@@ -49,6 +53,7 @@ const useInput = (initialValue = '', validateFunction = valueIsNotEmpty) => {
     change: valueChangeHandler,
     blur: inputBlurHandler,
     reset,
+    force,
   };
 };
 

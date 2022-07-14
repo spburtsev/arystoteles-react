@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import useLocale from '../../hooks/use-locale';
+import useInput from '../../hooks/use-input';
 import useAuth from '../../hooks/use-auth';
 import { useQuery } from 'react-query';
 import LoadingSpinner from '../ui/LoadingSpinner';
@@ -8,6 +10,10 @@ import classes from './CommonSection.module.css';
 const CommonSection = () => {
   const { strings } = useLocale('profilePage');
   const { token } = useAuth();
+  const [editMode, setEditMode] = useState(false);
+  const firstName = useInput('');
+  const lastName = useInput('');
+  const email = useInput('');
   const { data, isLoading } = useQuery(
     'self-profile',
     createGetMeRequest(token),
@@ -15,8 +21,19 @@ const CommonSection = () => {
       onError: (err) => {
         alert(err.message);
       },
+      onSuccess: (data) => {
+        const usr = data.data;
+        firstName.force(usr.firstName);
+        lastName.force(usr.lastName);
+        email.force(usr.email);
+      },
     },
   );
+
+  const editHandler = (event) => {
+    event.preventDefault();
+    setEditMode((prev) => !prev);
+  };
 
   const usrData = data ? data.data : {};
 
@@ -28,17 +45,44 @@ const CommonSection = () => {
       ) : (
         <div className={classes.control}>
           <label>{strings.firstName}</label>
-          <p>{usrData.firstName}</p>
+          {editMode ? (
+            <input
+              type="text"
+              value={firstName.value}
+              onChange={firstName.change}
+              onBlur={firstName.blur}
+            />
+          ) : (
+            <p>{usrData.firstName}</p>
+          )}
 
           <label>{strings.lastName}</label>
-          <p>{usrData.lastName}</p>
+          {editMode ? (
+            <input
+              type="text"
+              value={lastName.value}
+              onChange={lastName.change}
+              onBlur={lastName.blur}
+            />
+          ) : (
+            <p>{usrData.lastName}</p>
+          )}
 
           <label>{strings.email}</label>
-          <p>{usrData.email}</p>
+          {editMode ? (
+            <input
+              type="text"
+              value={email.value}
+              onChange={email.change}
+              onBlur={email.blur}
+            />
+          ) : (
+            <p>{usrData.email}</p>
+          )}
         </div>
       )}
       <div className={classes.action}>
-        <button>{strings.edit}</button>
+        <button onClick={editHandler}>{strings.edit}</button>
       </div>
     </section>
   );

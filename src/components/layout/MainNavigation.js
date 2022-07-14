@@ -99,13 +99,13 @@ const MainNavigation = () => {
                   >
                     {strings.backups}
                   </NavLink>
-                  {/* <NavLink
+                  <NavLink
                     to="/users"
                     className={classes['menu-item']}
                     activeClassName={classes.active}
                   >
                     {strings.users}
-                  </NavLink> */}
+                  </NavLink>
                   <NavLink
                     to="/activities"
                     className={classes['menu-item']}

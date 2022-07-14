@@ -21,6 +21,7 @@ import MedicsPage from './pages/MedicsPage';
 import MedicDetailsPage from './pages/MedicDetailsPage';
 import ChildDetailsPage from './pages/ChildDetailsPage';
 import ChildrenPage from './pages/ChildrenPage';
+import UsersPage from './pages/UsersPage';
 
 const App = () => {
   const { isLoggedIn, role } = useAuth();
@@ -102,6 +103,9 @@ const App = () => {
             </Route>
             <Route exact path="/tips">
               <TipsPage />
+            </Route>
+            <Route exact path="/users">
+              <UsersPage />
             </Route>
           </Switch>
         )}

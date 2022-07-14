@@ -55,5 +55,49 @@ export const createGetMeRequest = (token) => async () => {
   return data;
 };
 
+export const updatePassword = (token) => async (password) => {
+  const response = await fetch(updateMyPassword, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    method: 'PATCH',
+    body: JSON.stringify({ password }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || apiErrors.loginError);
+  }
+  return data;
+};
+
+export const updateMeRequest = (token) => async () => {
+  const response = await fetch(updateMe, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: 'PATCH',
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || apiErrors.loginError);
+  }
+  return data;
+};
+
 export const getAllUsers = `${baseRoute}`;
 export const getUser = (id) => `${baseRoute}${id}`;
+
+export const fetchAllUsers = (token) => async () => {
+  const response = await fetch(getAllUsers, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: 'GET',
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || apiErrors.loginError);
+  }
+  return data;
+};

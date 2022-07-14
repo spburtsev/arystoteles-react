@@ -2,6 +2,7 @@ import LocalizedStrings from 'localized-strings';
 import AppLocale from '../lib/enums/AppLocale';
 import QuestionCategory from '../lib/enums/QuestionCategory';
 import AgeGroup from '../lib/enums/AgeGroup';
+import UserRole from '../lib/enums/UserRole';
 
 const localization = new LocalizedStrings({
   [AppLocale.English]: {
@@ -249,6 +250,12 @@ const localization = new LocalizedStrings({
       country: 'Country',
       fullName: 'Full name',
       confirm: 'Confirm',
+      role: 'Role',
+      [UserRole.Admin]: 'Admin',
+      [UserRole.Medic]: 'Medic',
+      [UserRole.OrganizationAdministrator]: 'Organization Administrator',
+      [UserRole.Caregiver]: 'Caregiver',
+      [UserRole.Seed]: 'Admin',
     },
   },
   [AppLocale.Ukrainian]: {
@@ -467,6 +474,12 @@ const localization = new LocalizedStrings({
       country: 'Країна',
       fullName: "Ім'я",
       confirm: 'Підтвердити',
+      role: 'Роль',
+      [UserRole.Admin]: 'Адміністратор',
+      [UserRole.Medic]: 'Доктор',
+      [UserRole.OrganizationAdministrator]: 'Адміністратор організації',
+      [UserRole.Caregiver]: 'Користувач',
+      [UserRole.Seed]: 'Адміністратор',
     },
     children: {
       explore: 'Детальніше',
