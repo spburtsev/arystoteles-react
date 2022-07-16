@@ -56,7 +56,9 @@ const MedicDetails = ({ medicId }) => {
             )}
           </section>
           <hr />
-          {role === UserRole.Caregiver && <AssignedChildren />}
+          {role === UserRole.Caregiver && (
+            <AssignedChildren medicId={medicId} />
+          )}
         </Fragment>
       )}
     </Fragment>

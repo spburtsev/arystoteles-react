@@ -8,7 +8,7 @@ const OrganizationList = ({ items }) => {
 
   return (
     <Fragment>
-      <h3 className={classes.total}>{`${strings.total}: ${items.length}`}</h3>
+      <h4 className={classes.total}>{`${strings.total}: ${items.length}`}</h4>
       <ul className={classes.list}>
         {items.map((org) => (
           <OrganizationItem

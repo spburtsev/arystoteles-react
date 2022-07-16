@@ -3,13 +3,13 @@ import localization from '../resources/localization';
 import AppLocale from '../lib/enums/AppLocale';
 
 const LocaleContext = React.createContext({
-  locale: AppLocale.Ukrainian,
+  locale: AppLocale.English,
   localizationObj: localization,
   setLocale: (_locale) => {},
 });
 
 export const LocaleContextProvider = (props) => {
-  const [locale, setLocale] = useState(AppLocale.Ukrainian);
+  const [locale, setLocale] = useState(AppLocale.English);
   localization.setLanguage(locale);
 
   const localeChangeHandler = (locale) => {
